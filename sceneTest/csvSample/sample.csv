@@ -1,0 +1,18 @@
+scale,0.001,
+weighted,1
+0,0,Pick Point
+500,0,Normal
+1000,0,Normal
+1500,0,Pick Point
+0,500,Normal
+500,500,Normal
+1000,500,Normal
+1500,500,Normal
+0,1000,Normal
+500,1000,Normal
+1000,1000,Normal
+1500,1000,Normal
+0,1500,Drop Point,20
+500,1500,Normal
+1000,1500,Normal
+1500,1500,Drop Point,80

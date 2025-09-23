@@ -1,0 +1,260 @@
+--- # Agent Model to be loaded
+# Current ICD of Loading and Unloading (Subjected to Change in Robot Code)
+
+# perform action: Denotes the type of action to be performed by the AMR
+# 1 : Perform action to move the AMR (Autonomous Guided Vehicle) to a target
+#     location.
+# 2 : Used to dock the AMR at a predefined docking station. This can be for
+#     charging or other docking purposes.
+# 3 : Instructs the AMR to undock from the current docked position and resume
+#     its normal operations.
+# 4 : Begins the charging process when the AMR is at the charging dock,
+#     activating the charging circuit.
+# 6 : Stops the charging process, detaching the AMR from the charger but
+#     keeping it in the dock.
+# 7 : Used to reset any charge-related errors, ensuring the AMR can resume its
+#     normal operations.
+# 8 : Initiates AMR's an emergency stop.
+# 9 : Begins the loading process on the AMR's attachment (e.g., a conveyor).
+# 10: Starts the unloading process using the AMR's attachment.
+# 13: Sets the conveyor's direction for loading operations.
+# 14: Reverses the direction of the conveyor for unloading purposes.
+# 15: Resets the conveyor system to a neutral state, often used after an error
+#     or operation completion.
+# 16: Performs a hard reset of the system, clearing any critical errors that
+#     may have occurred.
+# 17: Starts a special type of loading operation, potentially with additional
+#     custom behavior.
+
+# ResponseCommand
+# 18 : Indicates no action has been completed or no response to the request.
+# 30 : Response when a movement action has been successfully completed.
+# 19 : AMR has successfully reached the docking station.
+# 20 : AMR has reached the predocking position, ready for final docking.
+# 21 : Loading process has been stopped successfully.
+# 22 : Unloading process has been stopped successfully.
+# 23 : Indicates that the charging process has been stopped successfully.
+# 24 :  Provides feedback after resetting an error condition in the system.
+# 52 : Feedback after performing a hard reset, indicating that critical errors
+#      have been cleared.
+# 401 : Error occurred during the loading process.
+# 402 : Error occurred during the unloading process.
+
+ActionCommand:
+  CHARGE:
+    CHARGE_DOCK: 25
+    CHARGE_UNDOCK: 26
+    START_CHARGING: 4
+    RESET_CHARGE_ERROR: 7
+    STOP_CHARGING: 6
+  DOCK:
+    MOVE_FORWARD: 2
+    MOVE_BACKWARD: 3
+  MOVE: 1
+  ESTOP: 8
+  ATTACHMENT:
+    START_LOADING: 9
+    START_LOADING_MANUALLY: 11
+    START_UNLOADING: 10
+    START_UNLOADING_MANUALLY: 12
+    LOADING_DIRECTION: 13
+    LOADING_DIRECTION_REVERSE: 14
+    RESET_CONVEYOR: 15
+    HARD_RESET_ERROR: 16
+    START_SPECIAL_LOADING: 17
+    START_LIFT: 30
+# Currently these settings are specified here but eventually they should come
+# from the the attachment folder.
+ResponseCommand:
+  NO_ACTION_COMPLETED: 18
+  MOVE_COMPLETED: 30
+  DOCK:
+    REACHED_DOCK: 19
+    REACHED_PREDOCK: 20
+    LOADING_STOPPED: 21
+    UNLOADING_STOPPED: 22
+    LIFT_STOPPED: 31
+  CHARGE:
+    CHARGING_STOPPED: 23
+  ERROR:
+    RESET_FEEDBACK: 24
+    HARD_RESET_FEEDBACK: 52
+    LOADING_ERROR: 401
+    UNLOADING_ERROR: 402
+    DOCKING_ERROR: 205
+    CHARGING_ERROR: 501
+
+# Agent Model to be loaded
+Params:
+  name: "AMR"
+  # Don't change the next three lines.
+  # This needs to match with one of the categories we support.
+  # Type is : [ZIPPY, 4WPS, AMR, VELOCE]
+  # Variant : [V_200,V_1000,V_1500,V_TUG1500,V_2500]
+  type: "AMR"
+  variant: "V_100"
+  attachment: "Lifter"
+  tug: false
+  noRotation: false
+  validateParcelAtPick: true
+  validateParcelAtDrop: true
+  dimensions:
+    lengthFront: 0.395
+    lengthRear: 0.395
+    widthLeft: 0.325
+    widthRight: 0.325
+    heightTop: 0.333
+    heightBottom: 0.333
+  safetyFields:
+    safetyZone:
+      front: 1.5
+      rear: 0.5
+      left: 0.5
+      right: 0.5
+  reducedSafetyFields:
+    safetyZone:
+      front: 0.6
+      rear: 0.5
+      left: 0.5
+      right: 0.5  
+  extendedSafetyFields:
+    safetyZone:
+      front: 1.2
+      rear: 0.5
+      left: 0.5
+      right: 0.5
+  loadedDimensions:
+    front: 0.0
+    rear: 0.0
+    left: 0.0
+    right: 0.0
+  # Available option UNIDIRECTIONAL, BIDIRECTIONAL and OMNIDIRECTIONAL
+  motionType: "BIDIRECTIONAL"
+  # Available option SINGLE, TRAPEZOIDAL, SIMPLE
+  #   SINGLE : Zippy like path follower only moves in straight line
+  #   TRAPEZOIDAL : Trapezoidal path follower.
+  #   SIMPLE : Curve based path follower
+  pathFollower: "Curved"
+  # Available option DIFFERENTIAL, SIMPLE
+  #   DIFFERENTIAL : System has a plant model
+  #   SIMPLE : Velocity_in = Velocity_Out.
+  motionModel: "DIFFERENTIAL"
+  # Available client types
+  #  TCP/rabbitmq - Zippy/AMR
+  #  REST - 4WPS
+  clientType: "tcp"
+  # Available parsers
+  #  V0 - Zippy
+  #  V1 - Zippy Tug
+  #  V2 - AMR
+  parser: "StringV2"
+  obstacleSensor:
+    num: 2
+    sensor_0:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      yaw: 0.0 # in radians.
+      minFOV: "-pi/6" # considering robot heading left
+      maxFOV: "pi/6" # to right
+      range: 3
+      rangeWarning: 2
+      rangeCritical: 1
+    sensor_1:
+      x: -0.1
+      y: 0.0
+      z: 0.0
+      yaw: 3.14
+      minFOV: "-pi/6" # considering robot heading left
+      maxFOV: "pi/6" # to right
+      range: 1
+  behaviors:
+    # Priority is given to behaviors under robot folder.
+    # The default path is:
+    # The File name should match:
+    #   - under this folder.
+    #   - under behavior folder.
+    behaviorDefault:
+      path: "agentBehaviorAmrV2"
+    behaviorV1:
+      path: "agentBehaviorAmr"
+    default: "behaviorDefault"
+  # All values are in seconds, meters, m/sec^2
+  timer:
+    loadingTime: 2.0
+    unloadingTime: 2.0
+    replanningTime: 2.0
+    queueReplanningTime: 2.0
+    dockingTime: 2.0
+    undockingTime: 2.0
+    chargeIdleTime: 2.0
+    pickRequestTime: 2.0
+  motion:
+    # All Values are in seconds, radians, meters, m/sec^2.
+    loadingTime: 2.0
+    unloadingTime: 2.0
+    maxLinearVelocity: 0.8
+    maxLinearVelocityCurve: 0.8
+    maxLateralVelocity: 0.8
+    maxAngularVelocity: 1.57
+    linearAcceleration: 1.0
+    linearDeceleration: 0.8
+    lateralAcceleration: 0.2
+    lateralDeceleration: 0.15
+    positionTolerance: 0.07
+    angularTolerance: 0.025
+    cruiseDistance: 0.0
+    cruiseVelocity: 0.0
+    creepDistance: 0.02
+    creepVelocity: 0.02
+    exitVelocity: 0.4
+    splinePointCount: 100
+    appendRobotPose: false
+    enableVelocityProfile: true
+    goalCheck: true
+    stopOnCollision: true
+    antipodalMovement: false
+    motionModelCoefficient: 0.5
+    turnDelayNoRotation: 10
+  battery:
+    # All Values are in seconds, radians, meters, m/sec^2.
+    chargeDuration: 450
+    dischargeDuration: 60000
+    motionFactor: 1.02
+    attachmentFactor: 1.02
+    decayFactor: 1.02
+    enableBattery: true
+    initialDecayAge: 0
+
+Attachments:
+  - attachment: "Lifter"
+    dimensions:
+      lengthFront: 0.395
+      lengthRear: 0.395
+      widthLeft: 0.325
+      widthRight: 0.325
+      heightTop: 0.333
+      heightBottom: 0.333
+    safetyFields:
+      safetyZone:
+        front: 1.2
+        rear: 0.5
+        left: 0.5
+        right: 0.5
+    reducedSafetyFields:
+      safetyZone:
+        front: 0.6
+        rear: 0.5
+        left: 0.5
+        right: 0.5  
+    extendedSafetyFields:
+      safetyZone:
+        front: 1.2
+        rear: 0.5
+        left: 0.5
+        right: 0.5
+    loadedDimensions:
+      front: 0.0
+      rear: 0.0
+      left: 0.0
+      right: 0.0

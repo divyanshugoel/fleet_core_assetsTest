@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <Exceptions FormatVersion="1">
+        <Error name="DISCONNECTED" code="404" description="Robot is Disconnected">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error name="DOCKING_FAILURE" code="205" description="Docking failed and retry limit reached">
+            <Option id="1" endpoint="/robot/resetDockingRetries" description="Move the robot to predock and reset, If not fixed, contact Addverb support" />
+        </Error>
+        <Error name="CHARGING_FAILURE_AT_LOCATION" code="206" description="This is automatically overwritten">
+            <Option id="1" endpoint="/robot/resetBlacklistedLocations" description="Reset the blacklisted charge locations" />
+        </Error>
+        <Error name="DEADLOCK" code="207" description="This is automatically overwritten">
+            <Option id="1" endpoint="" description="Teleop Robot towards the path and resolve" />
+        </Error>
+        <Error bitIndex="1" name="OBSTACLE_SAFETY" code="2001" description="Obstacle safety">
+            <Option id="1" description="Move the object away from the robot" />
+        </Error>
+        <Error bitIndex="2" name="ESTOP_ERROR" code="2002" description="Emergency stop Pressed">
+            <Option id="1" description="Pull and release the Emergency button when safe" />
+        </Error>
+        <Error bitIndex="3" name="OSSD_ERROR" code="2003" description="System Error">
+            <Option id="1"
+                description=" Remove other available errors related to software or hardware" />
+        </Error>
+        <Error bitIndex="4" name="PLC_HEARTBEAT_ERROR" code="2004" description="PLC is in ERROR">
+            <Option id="1" description="Restart the robot or Contact Addverb support" />
+        </Error>
+        <Error bitIndex="5" name="HARDWARE_ERROR" code="2005" description="Problem in hardware">
+            <Option id="1" description=" Restart the robot. If consistent, Contact Addverb Support" />
+        </Error>
+        <Error bitIndex="6" name="SPLC_FAULT" code="2006" description="Safety PLC is in error">
+            <Option id="1" description=" Remove other errors related to safety or hardware." />
+        </Error>
+        <Error bitIndex="7" name="SOFTWARE_ERROR" code="2007"
+            description="Data from one or more sensors not available">
+            <Option id="1"
+                description=" Wait for the data to be available. If not available in a while restart" />
+        </Error>
+        <Error bitIndex="8" name="BATTERY_CRITICAL" code="2008"
+            description="Robot battery below 20%">
+            <Option id="1" description="Check if the charging stations are empty" />
+        </Error>
+        <Error bitIndex="9" name="ZERO_VELOCITY_LLD" code="2009"
+            description="Robot in Error condition">
+            <Option id="1" description="Remove the errors" />
+        </Error>
+        <Error bitIndex="10" name="BRAKE_ENGAGED" code="2010"
+            description="Robot is not moving because brake is engaged">
+            <Option id="1" description="Wait for the brakes to be released" />
+        </Error>
+        <Error bitIndex="11" name="BACK_LIDAR_CONTAMINATION" code="2011"
+            description="Back Lidar is Contaminated">
+            <Option id="1" description="Clean the back lidar" />
+        </Error>
+        <Error bitIndex="12" name="FRONT_LIDAR_CONTAMINATION" code="2012"
+            description="Front Lidar is Contaminated">
+            <Option id="1" description="Clean the front lidar with a cotton." />
+        </Error>
+        <Error bitIndex="13" name="KINCODRIVE_EXTENDED_ERROR" code="2013"
+            description="Kinco Driver has extended Error.">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="14" name="KINCODRIVE_OVERVOLTAGE_ERROR" code="2014"
+            description="Kinco Driver is receiving Overvoltage">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="15" name="KINCODRIVE_UNDERVOLTAGE_ERROR" code="2015"
+            description="Kinco Driver is receiving Undervoltage">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="16" name="KINCODRIVE_OVERCURRENT_ERROR" code="2016"
+            description="Kinco Driver is receiving Overurrent">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="17" name="KINCODRIVE_FOLLOWING_ERROR" code="2017"
+            description="Kinco Driver is showing following error">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="18" name="KINCODRIVE_LOW_LOGIC_VOLTAGE_ERROR" code="2018"
+            description="Kinco Driver is showing Low Voltage">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="19" name="KINCODRIVE_OVERFREQUENCY_ERROR" code="2019"
+            description="Kinco is showing Over Frequency Error.">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="20" name="MOONDRIVE_OVERCURRENT_ERROR" code="2020"
+            description="Moon Driver is receiving OverCurrent">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="21" name="MOONDRIVE_OVERVOLTAGE_ERROR" code="2021"
+            description="Moon Driver is receiving OverVoltage">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="22" name="MOONDRIVE_ENCODER_ERROR" code="2022"
+            description="Moon Driver is showing Encoder Error">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="23" name="MOONDRIVE_LOWVOLTAGE_ERROR" code="2023"
+            description="Moon Driver is receiving Low Voltage">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="24" name="MOONDRIVE_UNDERVOLTAGE_ERROR" code="2024"
+            description="Moon Driver is reveiving UnderVoltage">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="25" name="ROBOTEQ_OVERHEAT_ERROR" code="2025"
+            description="RobotEq is over heating">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="26" name="ROBOTEQ_OVERVOLTAGE_ERROR" code="2026"
+            description="RobotEq is receiving Over Voltage">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="27" name="ROBOTEQ_UNDERVOLTAGE_ERROR" code="2027"
+            description="RobotEq is receiving UnderVoltage">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="28" name="ROBOTEQ_SHORTCIRCUIT_ERROR" code="2028"
+            description="RobotEq is showing short circuit">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="29" name="ROBOTEQ_EMERGENCYSTOP_ERROR" code="2029"
+            description="RobotEq is showing Emergency Stop">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="30" name="ROBOTEQ_MOTORSETUP_ERROR" code="2030"
+            description="RobotEq is showing setup Error with motor">
+            <Option id="1" description="Restart the robot. If not fixed, contact Addverb support" />
+        </Error>
+        <Error bitIndex="31" name="FRONT_LIDAR_SAFETY" code="2031"
+            description="Front Lidar is in Obstacle Safety">
+            <Option id="1" description="Remove the Object present in front of the robot" />
+        </Error>
+        <Error bitIndex="32" name="BACK_LIDAR_SAFETY" code="2032"
+            description="Back Lidar is in Obstacle Safety">
+            <Option id="1" description="Remove the Object present behind the robot" />
+        </Error>
+        <Error bitIndex="33" name="POWER_SUPPLY_UNDERVOLTAGE" code="2033"
+            description="Drive is receiving less voltage.">
+            <Option id="1" description="Check the powersupply of the drive." />
+        </Error>
+        <Error bitIndex="34" name="MOTOR_POSITION_IS_ABNORMAL" code="2034"
+            description="Motor position in not correct">
+            <Option id="1" description="Try to restart or contact support" />
+        </Error>
+        <Error bitIndex="35" name="MOTOR_HALL_ERROR" code="2035"
+            description="Some Issue with motor hall sensor">
+            <Option id="1" description="Contact Support" />
+        </Error>
+        <Error bitIndex="36" name="MOTOR_OVERCURRENT" code="2036"
+            description="Motor is consuming more current">
+            <Option id="1" description="Check the supply, temperature or any hardware hinderence." />
+        </Error>
+        <Error bitIndex="37" name="MOTOR_OVERLOAD" code="2037"
+            description="Motor is drawing extra current">
+            <Option id="1" description="Check if the robot does not have load more than prescribed" />
+        </Error>
+        <Error bitIndex="38" name="EEPROM_FAULT" code="2038"
+            description="Motor read/write rate is too frequent">
+            <Option id="1" description="Contact Support" />
+        </Error>
+        <Error bitIndex="39" name="MOTOR_IGBT_FAILURE" code="2039"
+            description="Motor damaged due to harsh environmental conditions">
+            <Option id="1" description="Contact support" />
+        </Error>
+        <Error bitIndex="40" name="DRIVE_OVERHEAT_SHUTDOWN" code="2040"
+            description="Drive shutdown because of over temperature">
+            <Option id="1" description="Restarting may help" />
+        </Error>
+        <Error bitIndex="41" name="MOTOR_PHASE_LOSS" code="2041"
+            description="Motor has lost its supply phase">
+            <Option id="1" description="Check the connections of the Motor" />
+        </Error>
+        <Error bitIndex="42" name="MOTOR_CURRENT_EXCEED_TOLERANCE" code="2042"
+            description="Motor current has exceeded its tolerance">
+            <Option id="1" description="Check the supply to the motor" />
+        </Error>
+        <Error bitIndex="43" name="MOTOR_SPEED_OUT_OF_TOLERANCE" code="2043"
+            description="Motor is running at higher speed than prescribed">
+            <Option id="1" description="Check the current" />
+        </Error>
+        <Error bitIndex="44" name="MOTOR_OVERHEATING" code="2044"
+            description="Motor is getting heated">
+            <Option id="1" description="Restart after some time." />
+        </Error>
+        <Error bitIndex="45" name="POWER_OVERVOLTAGE" code="2045"
+            description="Drive is receiving Overvoltage">
+            <Option id="1" description="Check the Power Supply to the drive" />
+        </Error>
+        <Error bitIndex="46" name="RUNNING_FAULT" code="2046"
+            description="Drive is showing Rnnung fault">
+            <Option id="1" description="Contact support" />
+        </Error>
+        <Error bitIndex="47" name="DRIVE_OVERHEATING_ALARM" code="2047"
+            description="Drive is getting overheated">
+            <Option id="1" description="Check the power supply or the external conditions" />
+        </Error>
+        <Error bitIndex="48" name="LOCKED" code="2048"
+            description="Issue with the motor's ability to spin">
+            <Option id="1" description="Contact support" />
+        </Error>
+        <Error bitIndex="49" name="HOMING_ERROR_RIGHT" code="2049"
+            description="Homing not done for right wheel">
+            <Option id="1" description="Restart the Robot" />
+        </Error>
+        <Error bitIndex="50" name="HOMING_ERROR_LEFT" code="2050"
+            description="Homing not done for left wheel">
+            <Option id="1" description="Restart the Robot" />
+        </Error>
+        <Error bitIndex="51" name="STEERING_REAR_CONNECTION_ERROR" code="2051"
+            description="No connection to rear steering drive">
+            <Option id="1" description="Restart the Robot" />
+        </Error>
+        <Error bitIndex="52" name="STEERING_FRONT_CONNECTION_ERROR" code="2052"
+            description="No connection to front steering drive">
+            <Option id="1" description="Restart the Robot" />
+        </Error>
+        <Error bitIndex="53" name="TRACTION_REAR_CONNECTION_ERROR" code="2053"
+            description="No connection to rear traction drive">
+            <Option id="1" description="Restart the Robot" />
+        </Error>
+        <Error bitIndex="54" name="TRACTION_FRONT_CONNECTION_ERROR" code="2054"
+            description="No connection to front traction drive">
+            <Option id="1" description="Restart the Robot" />
+        </Error>
+        <Error bitIndex="55" name="BRAKE_ENGAGED_FROM_SOFTWARE" code="2055"
+            description="Brake is engaged from the software">
+            <Option id="1" description="Wait for the brakes to be released" />
+        </Error>
+        <Error bitIndex="56" name="MOTOR_DRIVER_DISCONNECT" code="2056"
+            description="Motor driver is disconnected from the IPC">
+            <Option id="1"
+                description="Check the connections and restart or contact Addverb support if issue persists" />
+        </Error>
+        <Error bitIndex="57" name="PATH_BLOCKED" code="3001" description="Path is Blocked">
+            <Option id="1" description="Remove the object from robot's path" />
+        </Error>
+        <Error bitIndex="58" name="POSE_NAN" code="3002"
+            description="Robot/Goal Pose is not valid. Robot Stopped">
+            <Option id="1" description="Check the sanity of data in topics" />
+        </Error>
+        <Error bitIndex="59" name="ROBOT_POSE_DATA_DROP" code="3003"
+            description="Robot pose not received">
+            <Option id="1" description="Check sensor data" />
+        </Error>
+        <Error bitIndex="60" name="GOAL_NOT_RECEIVED_FOR_CURRENT_PLAN" code="3004"
+            description=" Plan recieved but corresponding goal not recived">
+            <Option id="1" description="Check vpl/fleet" />
+        </Error>
+        <Error bitIndex="61" name="NAVIGATION_KILLED" code="3005"
+            description="Navigation module not running. Robot Stopped">
+            <Option id="1" description="Check the sanity of controller node" />
+        </Error>
+        <Error bitIndex="62" name="DOCKING_FAILED_F1" code="6001" description="Marker did not found">
+            <Option id="1" description="Make sure markers are visible to robot" />
+        </Error>
+        <Error bitIndex="63" name="DOCKING_INTERRUPTED_I1" code="6002"
+            description="Because of 20 cm criterian">
+            <Option id="1" description=" Make sure stoppers are working" />
+        </Error>
+        <Error bitIndex="64" name="DOCKING_INTERRUPTED_I2" code="6003" description="Marker lost">
+            <Option id="1"
+                description="Make sure robot doesn't get into safety , markers are visible ,else Contact Addverb Support" />
+        </Error>
+        <Error bitIndex="65" name="DOCKING_PREEMPTED" code="6004"
+            description="Docking interrupted or cancelled">
+            <Option id="1" description="Contact Addverb Support" />
+        </Error>
+        <Error bitIndex="66" name="DOCKING_FAILED_F2" code="6005"
+            description="Number of retries exceeded or docking is killed">
+            <Option id="1" description="Contact Addverb Support" />
+        </Error>
+        <Error bitIndex="67" name="UNDOCKING_FAILED" code="6006"
+            description="Couldn't get transformations">
+            <Option id="1" description="Contact Addverb Support" />
+        </Error>
+        <Error bitIndex="68" name="UNDOCKING_PREEMPTED" code="6007"
+            description="Unocking interrupted or cancelled">
+            <Option id="1" description="Contact Addverb Support " />
+        </Error>
+        <Error bitIndex="69" name="DOCKING_FAILED_F3" code="6008"
+            description="Couldn't get transformations from map to base link">
+            <Option id="1" description="Contact Addverb Support" />
+        </Error>
+        <Error bitIndex="70" name="UNDOCKING_FAILED_F3" code="6009"
+            description="Couldn't get transformations from map to base link">
+            <Option id="1" description="Contact Addverb Support" />
+        </Error>
+        <Error bitIndex="71" name="DOCKING_FAILED_F4" code="6010"
+            description="Station Did not listed">
+            <Option id="1" description="Contact Addverb Support" />
+        </Error>
+        <Error bitIndex="72" name="UNDOCKING_FAILED_F4" code="6011"
+            description="Station Did not listed">
+            <Option id="1" description="Contact Addverb Support" />
+        </Error>
+        <Error bitIndex="73" name="DOCKING_FAILED_F5" code="6012"
+            description="Pallet Present on Station">
+            <Option id="1" description="Remove the pallet and do retry action" />
+        </Error>
+        <Error bitIndex="74" name="UNKNOWN_ERROR" code="7000" description="Error Reported">
+            <Option id="1" description="Contact Support" />
+        </Error>
+        <Error bitIndex="75" name="IMU_CALIBRATION_FAILED" code="7001"
+            description="IMU calibration failed">
+            <Option id="1" description="Check IMU connection and try again" />
+        </Error>
+        <Error bitIndex="76" name="ROBOT_NOT_STATIONARY_FOR_CALIBRATION" code="7002"
+            description="Robot not stationary for calibration">
+            <Option id="1" description="Ensure robot is stationary and try again" />
+        </Error>
+        <Error bitIndex="77" name="LORDS_CALIBRATION_FAILED" code="7003"
+            description="LORDS calibration failed">
+            <Option id="1" description="Check LORDS connection and try again" />
+        </Error>
+        <Error bitIndex="78" name="LORDS_CALIBRATION_SERVICE_NOT_AVAILABLE" code="7004"
+            description="LORDS calibration service not available">
+            <Option id="1" description="Check LORDS connection and try again" />
+        </Error>
+    </Exceptions>
+</root>

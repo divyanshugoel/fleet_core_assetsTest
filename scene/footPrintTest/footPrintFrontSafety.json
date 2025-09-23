@@ -1,0 +1,13 @@
+{
+    "('nodeA', 'agentTypeA', 'yawA', 'safetyTypeA', 'nodeB', 'agentTypeB', 'yawB', 'safetyTypeB')": "(Note A, Note B)",
+    "('N1', 'AMR-V_1000-Lifter', '180', 'Normal', 'N0', 'AMR-V_1000-Lifter', 'Rotation', 'Normal')": "(A: Normal Safety, B: Rotation)",
+    "('N1', 'AMR-V_1000-Lifter', '180', 'Normal', 'N0', 'AMR-V_1000-Lifter', '180', 'footprint')": "(A: Normal Safety, B: Robot Footprint)",
+    "('N1', 'AMR-V_1000-Lifter', '180', 'Normal', 'N0', 'AMR-V_1000-Lifter', '180', 'Normal')": "(A: Normal Safety, B: Robot Footprint)",
+    "('N1', 'AMR-V_1000-Lifter', '180', 'Normal', 'N0', 'AMR-V_1000-Lifter', '180', 'Extended')": "(A: Normal Safety, B: Robot Footprint)",
+    "('N1', 'AMR-V_1000-Lifter', '180', 'Normal', 'N0', 'AMR-V_1000-Lifter', '180', 'LoadedFootprint')": "(A: Normal Safety, B: Loaded Footprint)",
+    "('N1', 'AMR-V_1000-Lifter', '180', 'Extended', 'N0', 'AMR-V_1000-Lifter', 'Rotation', 'Normal')": "(A: Extended Safety, B: Rotation)",
+    "('N1', 'AMR-V_1000-Lifter', '180', 'Extended', 'N0', 'AMR-V_1000-Lifter', '180', 'footprint')": "(A: Extended Safety, B: Robot Footprint)",
+    "('N1', 'AMR-V_1000-Lifter', '180', 'Extended', 'N0', 'AMR-V_1000-Lifter', '180', 'Normal')": "(A: Extended Safety, B: Robot Footprint)",
+    "('N1', 'AMR-V_1000-Lifter', '180', 'Extended', 'N0', 'AMR-V_1000-Lifter', '180', 'Extended')": "(A: Extended Safety, B: Robot Footprint)",
+    "('N1', 'AMR-V_1000-Lifter', '180', 'Extended', 'N0', 'AMR-V_1000-Lifter', '180', 'LoadedFootprint')": "(A: Extended Safety, B: Loaded Footprint)"
+}

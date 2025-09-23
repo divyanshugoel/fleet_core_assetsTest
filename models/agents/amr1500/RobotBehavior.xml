@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root BTCPP_format="4">
+    <BehaviorTree ID="RobotBehavior">
+        <Fallback>
+            <ERROR_RESET/>
+            <DOCK/>
+            <CHARGE_DOCK/>
+            <CHARGE/>
+            <CHARGE_UNDOCK/>
+            <UNDOCK/>
+            <LOAD_FORCED/>
+            <UNLOAD_FORCED/>
+            <MOVE_CMD/>
+        </Fallback>
+    </BehaviorTree>
+</root>

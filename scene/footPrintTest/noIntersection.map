@@ -1,0 +1,107 @@
+{
+   "blockers" : null,
+   "edges" : [
+      {
+         "from" : "N1",
+         "isUniDirectional" : true,
+         "length" : 1.55,
+         "name" : "N1|N0",
+         "to" : "N0",
+         "useAwake" : true,
+         "useSleep" : true
+      }
+   ],
+   "junctions" : null,
+   "nodes" : [
+      {
+         "barcodeValue" : {
+            "id" : -1,
+            "x" : 0,
+            "y" : 0
+         },
+         "name" : "N0",
+         "pose" : {
+            "orientation" : {
+               "w" : -6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none"
+      },
+      {
+         "barcodeValue" : {
+            "id" : -1,
+            "x" : 0,
+            "y" : 0
+         },
+         "name" : "N1",
+         "pose" : {
+            "orientation" : {
+               "w" : -6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 3.0,
+               "y" : 0.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none"
+      }
+   ],
+   "param" : {
+      "defaultView" : {
+         "x" : 1.0,
+         "y" : 1.0,
+         "yaw" : 0.0
+      },
+      "flipX" : false,
+      "flipY" : false,
+      "offsetPose" : {
+         "orientation" : {
+            "w" : 0.0,
+            "x" : 0.0,
+            "y" : 0.0,
+            "z" : 0.0
+         },
+         "position" : {
+            "x" : 0.0,
+            "y" : 0.0,
+            "z" : 0.0
+         }
+      },
+      "pickEdgeMultiplier" : 10.0
+   },
+   "robotTypes" : [
+      {
+         "attachment" : "Lifter",
+         "robot" : "AMR",
+         "variant" : "V_1000"
+      }
+   ],
+   "taskPolicies" : [],
+   "zones" : null
+}

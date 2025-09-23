@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<root>
+    <Network>
+        <Rabbitmq>
+            <IP>127.0.0.1</IP>
+            <Port>5672</Port>
+            <Username>guest</Username>
+            <Password>guest</Password>
+            <Parser>JSON</Parser>
+            <FilePath type="config">rabbit.json</FilePath>
+            <Props>
+                <AppID>ZIPPY</AppID>
+                <Type>2</Type>
+            </Props>
+        </Rabbitmq>
+    </Network>
+    <Database>
+        <mongodb>
+            <IP>mongodb://localhost</IP>
+            <Port>27017</Port>
+            <Parser>JSON</Parser>
+        </mongodb>
+    </Database>
+    <Task>
+        <Interface multiple="true">rabbitmq</Interface>
+        <Rabbitmq>
+            <PublishQueue>ZIPPY.DHL.UPDATE-TASK</PublishQueue>
+            <PublishRoutingKey>FMS</PublishRoutingKey>
+            <ListenQueue>FMS.RECEIVE_TASK</ListenQueue>
+            <ListenRoutingKey>FMS</ListenRoutingKey>
+        </Rabbitmq>
+        <Database>
+            <DbName>TestFMS</DbName>
+            <CollectionName>fmsTask</CollectionName>
+        </Database>
+        <Manager>
+            <Schedular>none</Schedular>
+            <Allocator>FIFO</Allocator>
+        </Manager>
+    </Task>
+</root>

@@ -1,0 +1,50 @@
+{
+scene:
+TimeStamp:
+
+Fleets: [
+    Fleets
+    {
+        id:
+        type:
+    }
+]
+
+agentCount
+{
+    Default: zippy10
+    agent{
+        pose:
+        type:
+        Initial_state:
+        TaskId : null
+    }
+}
+
+tasks:
+{
+    count:
+    tasks:
+    {
+        start
+        end
+        state:
+        target:
+
+    }
+
+}
+
+taskGenerator:
+{
+    mode : auto
+    model_name
+    {
+        type:
+        frequency:
+        guided :
+        destination:
+        targeted:
+    }
+
+}

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<root>
+    <Exceptions FormatVersion="1">
+	<Error errorname="SE-03-06494" errorcode="306494" errorDescription="Safety PLC Not Connected"/>
+        <Error errorname="CE-02-05101" errorcode="205101" errorDescription="PLC Digital IO module error"/>
+        <Error errorname="CE-02-05102" errorcode="205102" errorDescription="PLC Analog IO module error"/>
+        <Error errorname="CE-02-05103" errorcode="205103" errorDescription="PLC ID reader communication error"/>
+        <Error errorname="CE-02-05104" errorcode="205104" errorDescription="PLC Drive 1 communication error"/>
+        <Error errorname="CE-02-05105" errorcode="205105" errorDescription="PLC Drive 2 communication error"/>
+        <Error errorname="CE-02-05106" errorcode="205106" errorDescription="PLC Drive 3 communication error"/>
+        <Error errorname="CE-02-05107" errorcode="205107" errorDescription="PLC Battery communication error"/>
+        <Error errorname="CE-02-05494" errorcode="205494" errorDescription="PLC Central Controller Disconnected"/>
+        <Error errorname="SE-05-34001" errorcode="534001" errorDescription="E Stop Pressed"/>
+        <Error errorname="SE-05-34002" errorcode="534002" errorDescription="Remote E Stop Pressed"/>
+        <Error errorname="HE-06-99009" errorcode="699009" errorDescription="Drive 1 Fault Error"/>
+        <Error errorname="HE-07-99009" errorcode="799009" errorDescription="Drive 2 Fault Error"/>
+        <Error errorname="HE-09-41129" errorcode="941129" errorDescription="Battery Charging not successful"/>
+        <Error errorname="HE-09-41130" errorcode="941130" errorDescription="Battery Fault Error"/>
+        <Error errorname="HE-08-99009" errorcode="899009" errorDescription="Drive 3 Fault Error"/>
+        <Error errorname="OE-02-12101" errorcode="212101" errorDescription="Backward travel Soft Limit Reached for Y-Axis"/>
+        <Error errorname="OE-02-12102" errorcode="212102" errorDescription="Forward travel Soft Limit reached for Y-Axis"/>
+        <Error errorname="OE-02-12103" errorcode="212103" errorDescription="Y-Axis Over Run"/>
+        <Error errorname="OE-02-12104" errorcode="212104" errorDescription="Bot not parked at defined position on Y-Axis"/>
+        <Error errorname="OE-02-12105" errorcode="212105" errorDescription="Id not found on Y-Axis"/>
+        <Error errorname="OE-02-12106" errorcode="212106" errorDescription="Pallet Misaligned on Y-Axis"/>
+        <Error errorname="OE-02-12107" errorcode="212107" errorDescription="Pallet Lost on Y-Axis"/>
+        <Error errorname="OE-02-12108" errorcode="212108" errorDescription="Y-Axis  Stop Sensor not detected"/>
+        <Error errorname="OE-02-12109" errorcode="212109" errorDescription="X-Axis  Stop Sensor not detected"/>
+        <Error errorname="OE-02-12110" errorcode="212110" errorDescription="Wheel Slippage detected on Y-Axis"/>
+        <Error errorname="OE-02-12111" errorcode="212111" errorDescription="Rear Side  Collision Detected on Y-Axis"/>
+        <Error errorname="OE-02-12112" errorcode="212112" errorDescription="Another Bot detected on Y-Axis"/>
+        <Error errorname="OE-02-12113" errorcode="212113" errorDescription="Invalid command received on Y-Axis"/>
+        <Error errorname="OE-02-12114" errorcode="212114" errorDescription="Bot cannot move in loaded condition for charging"/>
+        <Error errorname="OE-02-12115" errorcode="212115" errorDescription="Wheels not engaged in Y-Axis"/>
+        <Error errorname="OE-02-12116" errorcode="212116" errorDescription="Bot not homed on Y-Axis"/>
+        <Error errorname="OE-02-12117" errorcode="212117" errorDescription="Bot position not ok on Y-Axis"/>
+        <Error errorname="OE-02-12118" errorcode="212118" errorDescription="Bot Charger docking failed"/>
+        <Error errorname="OE-02-12119" errorcode="212119" errorDescription="Wheels not engaged in X-Axis"/>
+        <Error errorname="OE-02-12120" errorcode="212120" errorDescription="Wheels not engaged in Place Position"/>
+        <Error errorname="OE-02-12121" errorcode="212121" errorDescription="Bot not homed on Z-Axis"/>
+        <Error errorname="OE-02-12122" errorcode="212122" errorDescription="Bot not homed on X-Axis"/>
+        <Error errorname="OE-02-12123" errorcode="212123" errorDescription="Backward travel Soft Limit Reached for X-Axis"/>
+        <Error errorname="OE-02-12124" errorcode="212124" errorDescription="Forward travel Soft Limit reached for X-Axis"/>
+        <Error errorname="OE-02-12125" errorcode="212125" errorDescription="Target Location empty"/>
+        <Error errorname="OE-02-12126" errorcode="212126" errorDescription="Target Location Pre-occupied"/>
+        <Error errorname="OE-02-12127" errorcode="212127" errorDescription="Slot count mismatch on X-Axis"/>
+        <Error errorname="OE-02-12128" errorcode="212128" errorDescription="Pallet Misaligned on X-Axis"/>
+        <Error errorname="OE-02-12129" errorcode="212129" errorDescription="No Pallet on Bot to place"/>
+        <Error errorname="OE-02-12130" errorcode="212130" errorDescription="Wrong Target Position"/>
+        <Error errorname="OE-02-12131" errorcode="212131" errorDescription="Wheel Slippage detected on X-Axis"/>
+        <Error errorname="OE-02-12132" errorcode="212132" errorDescription="Front Side  Collision Detected on X-Axis"/>
+        <Error errorname="OE-02-12133" errorcode="212133" errorDescription="Rear Side  Collision Detected on X-Axis"/>
+        <Error errorname="OE-02-12134" errorcode="212134" errorDescription="Another Bot detected on X-Axis"/>
+        <Error errorname="OE-02-12135" errorcode="212135" errorDescription="Invalid command received on X-Axis"/>
+        <Error errorname="OE-02-12136" errorcode="212136" errorDescription="Bot not transferred to lift"/>
+        <Error errorname="OE-02-12137" errorcode="212137" errorDescription="Buffer Occupied"/>
+        <Error errorname="OE-02-12138" errorcode="212138" errorDescription="Lift Occupied"/>
+        <Error errorname="OE-02-12139" errorcode="212139" errorDescription="Task Timeout error"/>
+        <Error errorname="OE-02-12140" errorcode="212140" errorDescription="Target position unknown"/>
+        <Error errorname="OE-02-12141" errorcode="212141" errorDescription="Drive Power Contactor1 Not Energised"/>
+        <Error errorname="OE-02-12142" errorcode="212142" errorDescription="Drive Power Contactor2 Not Energised"/>
+        <Error errorname="ON-02-12143" errorcode="212143" errorDescription="Bot in Manual Mode"/>
+        <Error errorname="ON-02-12144" errorcode="212144" errorDescription="Bot in Auto Mode"/>
+        <Error errorname="ON-02-12145" errorcode="212145" errorDescription="Bot  Charging On"/>
+        <Error errorname="ON-02-12146" errorcode="212146" errorDescription="Bot Charging Done"/>
+        <Error errorname="ON-02-12147" errorcode="212147" errorDescription="Bot Docked for Charging"/>
+        <Error errorname="ON-02-12148" errorcode="212148" errorDescription="Bot Undocked from Charger"/>
+        <Error errorname="ON-02-12149" errorcode="212149" errorDescription="Bot Charger Undocking failed"/>
+        <Error errorname="ON-02-12150" errorcode="212150" errorDescription="Drive Enabled"/>
+        <Error errorname="ON-02-12151" errorcode="212151" errorDescription="Drive Disabled"/>
+        <Error errorname="ON-02-12152" errorcode="212152" errorDescription="Jog Forward in Y-Axis"/>
+        <Error errorname="ON-02-12153" errorcode="212153" errorDescription="Jog Reverse in Y-Axis"/>
+        <Error errorname="ON-02-12154" errorcode="212154" errorDescription="Jog Forward in X-Axis"/>
+        <Error errorname="ON-02-12155" errorcode="212155" errorDescription="Jog Reverse in X-Axis"/>
+        <Error errorname="ON-02-12156" errorcode="212156" errorDescription="Jog Up in Z-Axis"/>
+        <Error errorname="ON-02-12157" errorcode="212157" errorDescription="Jog Down in Z-Axis"/>
+        <Error errorname="ON-02-12158" errorcode="212158" errorDescription="Wheels  engaged in X-Axis"/>
+        <Error errorname="ON-02-12159" errorcode="212159" errorDescription="Wheels  engaged in Place Position"/>
+        <Error errorname="ON-02-12160" errorcode="212160" errorDescription="Wheels  engaged in Y-Axis"/>
+        <Error errorname="ON-02-12161" errorcode="212161" errorDescription="Z-Axis Home done"/>
+        <Error errorname="ON-02-12162" errorcode="212162" errorDescription="X-Axis Home done"/>
+        <Error errorname="ON-02-12163" errorcode="212163" errorDescription="Bot ready for operation"/>
+        <Error errorname="ON-02-12164" errorcode="212164" errorDescription="Bot in operation"/>
+        <Error errorname="ON-02-12165" errorcode="212165" errorDescription="Bot in Y-axis"/>
+        <Error errorname="ON-02-12166" errorcode="212166" errorDescription="Bot in X-Axis"/>
+        <Error errorname="ON-02-12167" errorcode="212167" errorDescription="Bot in Lift"/>
+        <Error errorname="ON-02-12168" errorcode="212168" errorDescription="Bot in Buffer"/>
+        <Error errorname="ON-02-12169" errorcode="212169" errorDescription="Buffer healthy"/>
+        <Error errorname="ON-02-12170" errorcode="212170" errorDescription="Lift Healthy"/>
+        <Error errorname="ON-02-12171" errorcode="212171" errorDescription="Lift ready to receive Bot"/>
+        <Error errorname="ON-02-12172" errorcode="212172" errorDescription="Lift ready to deliver Bot"/>
+        <Error errorname="OE-02-12173" errorcode="212173" errorDescription="Invalid Inventory recorded"/>
+        <Error errorname="OE-02-12174" errorcode="212174" errorDescription="Bot Offline"/>
+        <Error errorname="HE-08-99002" errorcode="899002" errorDescription="Charging Station XX Docking error"/>
+        <Error errorname="OE-02-12175" errorcode="212175" errorDescription="Forward side collision detected on y axis"/>
+        <Error errorname="OE-02-12176" errorcode="212176" errorDescription="X-Axis over run"/>
+        <Error errorname="OE-02-12177" errorcode="212177" errorDescription="Lifting operation failed"/>
+        <Error errorname="ON-02-12178" errorcode="212178" errorDescription="Battery low"/>
+        <Error errorname="ON-02-12179" errorcode="212179" errorDescription="Battery full"/>
+        <Error errorname="ON-02-12180" errorcode="212180" errorDescription="Battery critically low"/>
+        <Error errorname="HE-02-05112" errorcode="205112" errorDescription="PLC Hardware Error"/>
+    </Exceptions>
+</root>
