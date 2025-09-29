@@ -728,11 +728,7 @@
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
-         "conveyorType" : "manual",
-         "dockDirection" : {
-            "yaw" : 1.0
-         },
+         "centeringNode" : "N23",
          "enable" : true,
          "name" : "N10",
          "pose" : {
@@ -755,7 +751,7 @@
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "storageBuffer"
       },
       {
          "barcodeValue" : {
@@ -1441,6 +1437,7 @@
       },
       "pickEdgeMultiplier" : 10.0
    },
+   "robotTypes" : [],
    "taskPolicies" : [],
    "zones" : null
 }
