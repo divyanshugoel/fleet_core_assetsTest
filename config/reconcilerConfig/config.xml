@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<root>
+    <Fleet>
+        <Name>TestServer</Name>
+        <!-- Change the value to rms/Copp -->
+        <DefaultController>Copp</DefaultController>
+        <!-- Reservation method to be used -->
+        <DefaultReservationMethod>PyConflictResolution</DefaultReservationMethod>
+        <!-- Allowed values are aStar and dijkstra -->
+        <PathGenerator>astar</PathGenerator>
+        <ReservationWindow>5</ReservationWindow>
+        <!-- Don't use these settings unless you know what you are doing.
+             You can also set the values only for the ones you want.
+             The values are bound to (0.2,2) 
+        <ReductionFactor>0.8</ReductionFactor>        
+        <VanishingFactor>1</VanishingFactor>
+        <TurnCostReductionFactor>0.5</TurnCostReductionFactor> 
+        -->
+        <!-- Look ahead length is given more priority than look ahead points, Selection is done this
+        distance -->
+        <LookAheadLength>-1</LookAheadLength>
+        <NearestNodeTolerance>-1</NearestNodeTolerance>
+        <!-- Used by PyCr to limit decision variables  -->
+        <MaximumPathPoints>40</MaximumPathPoints>
+        <!-- In radians-->
+        <CircleFootPrintThreshold>0.1</CircleFootPrintThreshold>
+        <!-- Only used in rms to control motion of agent if based on traffic light state -->
+        <RotateFirst>true</RotateFirst>
+
+        <!-- If you want to drop at multiple angles -->
+        <EnableMultipleYaw>false</EnableMultipleYaw>
+        <!-- In radians -->
+        <AngleVariation>0.52</AngleVariation>
+        <CompensateLoading>false</CompensateLoading>
+        <!-- Used to match the frame for veloce fms -->
+        <FrameCompensation>false</FrameCompensation>
+        <!-- Don't replan when going to transient park -->
+        <NoReplanOnTransientPark>false</NoReplanOnTransientPark>
+
+        <!-- Check if the safety/gate is open -->
+        <StartFleetConfirmation>false</StartFleetConfirmation>
+        <ResumeTime>5</ResumeTime>
+        <SafetyTrigger>
+            <Enable>false</Enable>
+            <Timeout>10</Timeout>
+        </SafetyTrigger>
+        <!-- Only same source/ unnamed can unlock fleet -->
+        <StopLock>false</StopLock>
+        <!-- Fleet can communicate its running status to agent -->
+        <NotifyStatusToAgent>false</NotifyStatusToAgent>
+        <!-- By default a ui stop is a soft stop, allowing robots to stop at barcode -->
+        <!-- However, If a wes trigger comes, fleet can decide if the default mode of stopping is
+        hard stop or softStop. For backward compatibility  -->
+        <defaultHardStop>false</defaultHardStop>
+    </Fleet>
+
+    <Scene>
+        <!-- Inventory -->
+        <Inventory>
+            <Database>
+                <DbName>FMS</DbName>
+                <CollectionName>stockData</CollectionName>
+            </Database>
+        </Inventory>
+        <!-- Inventory by location-->
+        <InventoryLocation>
+            <Database>
+                <DbName>FMS</DbName>
+                <CollectionName>stockLocationData</CollectionName>
+            </Database>
+        </InventoryLocation>
+    </Scene>
+
+</root>
