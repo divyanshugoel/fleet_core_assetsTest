@@ -113,6 +113,7 @@ Params:
   #   SINGLE : Zippy like path follower only moves in straight line
   #   TRAPEZOIDAL : Trapezoidal path follower.
   #   SIMPLE : Curve based path follower
+  #   LINEAR_MPC: MPC for generating linear velocities for straight lines
   pathFollower: "Curved"
   # Available option DIFFERENTIAL, SIMPLE
   #   DIFFERENTIAL : System has a plant model
@@ -137,6 +138,7 @@ Params:
       minFOV: "-pi/6" # considering robot heading left
       maxFOV: "pi/6" # to right
       range: 3
+      rangePlanning: 3
       rangeWarning: 2
       rangeCritical: 1
     sensor_1:
@@ -160,24 +162,49 @@ Params:
     default: "behaviorDefault"
   # All values are in seconds, meters, m/sec^2
   timer:
-    loadingTime: 2.0
-    unloadingTime: 2.0
-    replanningTime: 2.0
-    queueReplanningTime: 2.0
-    dockingTime: 2.0
-    undockingTime: 2.0
-    chargeIdleTime: 2.0
-    pickRequestTime: 2.0
+    loadingTime: -1.0
+    unloadingTime: -1.0
+    replanningTime: 10.0
+    queueReplanningTime: 30.0
+    dockingTime: 30.0
+    undockingTime: 30.0
+    chargeIdleTime: 30.0
+    pickRequestTime: 50.0
+    robotActiveTime: 5.0
+    robotAtPositionRepeatTime: 1.0
+    maxLoadingTries: 7
+    maxUnloadingTries: 7
+    maxDockingTries: 7
+    maxUndockingTries: 7
+    maxChargingTries: 7
+    # Maximum distance the agent can jump in one communication delta
+    poseJumpThreshold: 5.0
+    # If the robot is to get out of the charger on stopping fleet.
+    # For fire mode.
+    exitFromChargerOnPause: false
+    # Resetting the behavior tree allows to resume the state better on robot shutdown.
+    resetBehaviorOnShutdown: true
+    # Resetting the behavior tree allows to resume the state better on manual mode change.
+    resetBehaviorOnModeChange: true
+
   motion:
     # All Values are in seconds, radians, meters, m/sec^2.
+    # These values are for the simulation side.
     loadingTime: 2.0
     unloadingTime: 2.0
+    resetLiftPosition: 10000
+    liftTolerance: 200
+    liftLoadOffset: 1400000
+    resetDepthPosition: 1400000
+    depthTolerance: 1400000
+    depthOffset: 1400000
     maxLinearVelocity: 0.8
     maxLinearVelocityCurve: 0.8
     maxLateralVelocity: 0.8
     maxAngularVelocity: 1.57
     linearAcceleration: 1.0
     linearDeceleration: 0.8
+    jerkMax: 10.0
     lateralAcceleration: 0.2
     lateralDeceleration: 0.15
     positionTolerance: 0.25
@@ -195,6 +222,20 @@ Params:
     antipodalMovement: false
     motionModelCoefficient: 0.5
     turnDelayNoRotation: 10
+    numOptVars: 13
+    dt: 0.1
+    positionWeight: 1.0
+    velocityWeight: 0.0
+    weightScale: 0.06
+    velocityWeightThreshold: 0.2
+    jerkScale: 1.0
+    accelerationScale: 1.0
+    finalPositionOffset: 0.02
+    finalVelocityThreshold: 0.05
+    osqpIterations: 500
+    osqpEpsAbsThreshold: 0.01
+    osqpEpsRelThreshold: 0.01
+
   charge:
     critical: 20
     minimum: 30
@@ -219,29 +260,27 @@ Attachments:
       widthRight: 0.662
       heightTop: 0.333
       heightBottom: 0.333
+    loadedDimensions:
+      front: 0.0
+      rear: 0.0
+      left: 0.05
+      right: 0.05
     safetyFields:
       safetyZone:
         front: 1.2
         rear: 0.5
         left: 0.5
         right: 0.5
-    reducedSafetyFields:
-      safetyZone:
+      reducedSafetyZone:
         front: 0.6
         rear: 0.5
         left: 0.5
-        right: 0.5  
-    extendedSafetyFields:
-      safetyZone:
+        right: 0.5
+      extendedSafetyZone:
         front: 1.2
         rear: 0.5
         left: 0.5
         right: 0.5
-    loadedDimensions:
-      front: 0.0
-      rear: 0.0
-      left: 0.05
-      right: 0.05
   - attachment: "Tugger"
     dimensions:
       lengthFront: 0.925
@@ -250,26 +289,24 @@ Attachments:
       widthRight: 0.675
       heightTop: 0.333
       heightBottom: 0.333
+    loadedDimensions:
+      front: 0.0
+      rear: 2.25
+      left: 0.05
+      right: 0.05
     safetyFields:
       safetyZone:
         front: 1.2
         rear: 0.5
         left: 0.5
         right: 0.5
-    reducedSafetyFields:
-      safetyZone:
+      reducedSafetyZone:
         front: 0.6
         rear: 0.5
         left: 0.5
-        right: 0.5  
-    extendedSafetyFields:
-      safetyZone:
+        right: 0.5
+      extendedSafetyZone:
         front: 1.2
         rear: 0.5
         left: 0.5
         right: 0.5
-    loadedDimensions:
-      front: 0.0
-      rear: 2.25
-      left: 0.05
-      right: 0.05
