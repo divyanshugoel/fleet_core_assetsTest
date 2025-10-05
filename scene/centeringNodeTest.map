@@ -398,6 +398,7 @@
    "locationManager" : null,
    "nodes" : [
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -406,6 +407,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -426,14 +428,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -442,6 +447,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -462,14 +468,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -478,6 +487,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -498,14 +508,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -514,6 +527,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -534,14 +548,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -550,6 +567,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -570,14 +588,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -586,6 +607,7 @@
          },
          "centeringNode" : "N23",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -606,14 +628,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -622,6 +647,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -642,14 +668,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -658,6 +687,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -678,14 +708,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -694,6 +727,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -714,14 +748,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -729,6 +766,7 @@
             "y" : -1
          },
          "centeringNode" : "N23",
+         "disabledFor" : "",
          "enable" : true,
          "name" : "N10",
          "pose" : {
@@ -746,20 +784,24 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "storageBuffer"
+         "type" : "storageBuffer",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
+         "disabledFor" : "",
          "name" : "N11",
          "pose" : {
             "orientation" : {
@@ -776,14 +818,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "none"
+         "type" : "none",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -792,6 +837,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -812,22 +858,25 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -848,20 +897,24 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
+         "disabledFor" : "",
          "name" : "N14",
          "pose" : {
             "orientation" : {
@@ -878,20 +931,24 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "none"
+         "type" : "none",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
+         "disabledFor" : "",
          "name" : "N15",
          "pose" : {
             "orientation" : {
@@ -908,14 +965,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "none"
+         "type" : "none",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -924,6 +984,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -944,14 +1005,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -960,6 +1024,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -980,20 +1045,24 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
+         "disabledFor" : "",
          "name" : "N18",
          "pose" : {
             "orientation" : {
@@ -1010,20 +1079,24 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "none"
+         "type" : "none",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
+         "disabledFor" : "",
          "name" : "N19",
          "pose" : {
             "orientation" : {
@@ -1040,14 +1113,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "none"
+         "type" : "none",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -1056,6 +1132,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -1076,14 +1153,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -1092,6 +1172,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -1112,20 +1193,24 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
+         "disabledFor" : "",
          "name" : "N22",
          "pose" : {
             "orientation" : {
@@ -1142,20 +1227,24 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "none"
+         "type" : "none",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
+         "disabledFor" : "",
          "name" : "N23",
          "pose" : {
             "orientation" : {
@@ -1172,14 +1261,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "none"
+         "type" : "none",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -1188,6 +1280,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -1208,14 +1301,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -1224,6 +1320,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -1244,20 +1341,24 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
+         "disabledFor" : "",
          "name" : "N26",
          "pose" : {
             "orientation" : {
@@ -1274,20 +1375,24 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "none"
+         "type" : "none",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
+         "disabledFor" : "",
          "name" : "N27",
          "pose" : {
             "orientation" : {
@@ -1304,14 +1409,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "none"
+         "type" : "none",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -1320,6 +1428,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -1340,14 +1449,17 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -1356,6 +1468,7 @@
          },
          "centeringNode" : "\u0000",
          "conveyorType" : "manual",
+         "disabledFor" : "",
          "dockDirection" : {
             "yaw" : 1.0
          },
@@ -1376,20 +1489,24 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "bin"
+         "type" : "bin",
+         "weight" : -1.0
       },
       {
+         "agentsAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
+         "disabledFor" : "",
          "name" : "N30",
          "pose" : {
             "orientation" : {
@@ -1406,12 +1523,14 @@
          },
          "replanAllowed" : true,
          "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
          "sleepType" : "none",
          "turnCost" : {
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "none"
+         "type" : "none",
+         "weight" : -1.0
       }
    ],
    "param" : {
