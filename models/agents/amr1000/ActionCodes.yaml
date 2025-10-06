@@ -63,6 +63,8 @@ ActionCommand:
     HARD_RESET_ERROR: 16
     START_SPECIAL_LOADING: 17
     START_LIFT: 30
+    START_LOADING_DOCK: 71
+    START_UNLOADING_DOCK: 72
 # Currently these settings are specified here but eventually they should come
 # from the the attachment folder.
 ResponseCommand:
@@ -74,6 +76,8 @@ ResponseCommand:
     LOADING_STOPPED: 21
     UNLOADING_STOPPED: 22
     LIFT_STOPPED: 31
+    LOADING_DOCK_DONE: 76
+    UNLOADING_DOCK_DONE: 77
   CHARGE:
     CHARGING_STOPPED: 23
   ERROR:
