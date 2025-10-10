@@ -59,7 +59,7 @@ ResponseCommand:
     LOADING_STOPPED: 16 # not used as per current ICD
     LIFT_STOPPED: 31
     LOADING_DOCK_DONE: 76
-    UNLOADING_DOCK_DONE: 77
+
   CHARGE:
     CHARGING_STOPPED: 18
   ERROR:
