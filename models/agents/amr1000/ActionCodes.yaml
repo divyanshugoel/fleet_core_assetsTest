@@ -247,6 +247,9 @@ Params:
     minimum: 30
     acceptable: 50
     maximum: 75
+    slow: 75
+    # Timeout in seconds.
+    slowRequestTimeout: 5
   battery:
     # All Values are in seconds, radians, meters, m/sec^2.
     chargeDuration: 450
