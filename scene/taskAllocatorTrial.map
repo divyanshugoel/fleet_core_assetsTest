@@ -514,7 +514,12 @@
             "x" : -1,
             "y" : -1
          },
+         "conveyorType" : "manual",
          "disabledFor" : "",
+         "dockDirection" : {
+            "yaw" : 1.0
+         },
+         "enable" : true,
          "name" : "N19",
          "pose" : {
             "orientation" : {
@@ -537,7 +542,7 @@
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "none",
+         "type" : "bin",
          "weight" : -1.0
       },
       {
