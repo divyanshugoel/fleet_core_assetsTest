@@ -1,0 +1,132 @@
+{
+  "appPresets" : 
+  [
+    {
+      "apps" : 
+      [
+        {
+          "extraArgs" : 
+          [
+            "--debug"
+          ],
+          "name" : "FMS Server"
+        }
+      ],
+      "name" : "serverSimDebug"
+    },
+    {
+      "apps" : 
+      [
+        {
+          "extraArgs" : 
+          [
+            ""
+          ],
+          "name" : "FMS Server"
+        },
+        {
+            "extraArgs" :
+            [
+              ""
+            ],
+            "name" : "FMS Simulator"
+        }
+      ],
+      "name" : "default"
+    }
+  ],
+  "appTemplates" : 
+  [
+    {
+      "argPattern" : 
+      [
+        [
+          "--config",
+          "config"
+        ],
+        [
+          "--scene",
+          "scene"
+        ],
+        [
+          "--configSim",
+          "configSim"
+        ]
+      ],
+      "commands" : 
+      [
+        {
+          "addTask" : 
+          {
+            "end" : "N49",
+            "id" : "-1",
+            "start" : "N17"
+          }
+        },
+        {
+          "addRobot" : 
+          {
+            "attachment" : "Single Conveyor",
+            "count" : "5",
+            "type" : "ZIPPY",
+            "variant" : "V10"
+          }
+        },
+        {
+          "addTask" : 
+          {
+            "end" : "N9",
+            "id" : "-1",
+            "start" : "N32"
+          }
+        },
+        {
+          "updateRobot" : 
+          {
+            "id" : "1",
+            "node" : "N31"
+          }
+        },
+        {
+          "apiCommand" : 
+          {
+            "name" : "startFleet"
+          }
+        }
+      ],
+      "name" : "FMS Server",
+      "path" : "./fmsServer"
+    },
+    {
+        "name": "FMS Simulator",
+        "path": "./fmsSimulator"
+    }
+  ],
+  "defaultPreset" : "dev",
+  "filePresets" : 
+  [
+    {
+      "config" : "config://config.xml",
+      "configSim" : "config://configSim.xml",
+      "name" : "devFiles",
+      "scene" : "assetsTest://scene/testing.map"
+    },
+    {
+      "config" : "config://test_config.xml",
+      "configSim" : "config://simulator_test.xml",
+      "name" : "testFiles",
+      "scenario" : "scenario://test1.scenario",
+      "scene" : "scene://test.map"
+    }
+  ],
+  "presets" : 
+  [
+    {
+      "appPreset" : "default",
+      "description" : "Run FMS Server and Simulator with debug flag",
+      "filePreset" : "devFiles",
+      "name" : "dev"
+    }
+  ],
+  "scene" : "assetsTest://scene/testing.map"
+}
