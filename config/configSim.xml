@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<root>
+
+    <!-- Network settings
+        - Interface: mqtt, websocket, http, tcp, udp
+        - Parser: JSON, text. -->
+
+    <Network>
+        <Gateway>
+            <IP>127.0.0.1</IP>
+            <Port>39329</Port>
+            <Secure>false</Secure>
+            <RoutingKey></RoutingKey>
+            <Certificate>assets://cert/localhost.crt</Certificate>
+            <PrivateKey>assets://cert/localhost.key</PrivateKey>
+            <VerifyFile></VerifyFile>
+            <Timeout>2</Timeout>
+            <EndPoint>iotgateway/write</EndPoint>
+        </Gateway>
+        <Scanner>
+            <IP>127.0.0.1</IP>
+            <Port>7999</Port>
+            <Secure>false</Secure>
+            <RoutingKey></RoutingKey>
+            <Certificate>assets://cert/localhost.crt</Certificate>
+            <PrivateKey>assets://cert/localhost.key</PrivateKey>
+            <VerifyFile></VerifyFile>
+            <Timeout>2</Timeout>
+            <EndPoint>scanner/data</EndPoint>
+        </Scanner>
+        <EndPoints>
+            <Trigger>location/trigger</Trigger>
+        </EndPoints>
+    </Network>
+
+    <!--Database
+    Types, IP Address and Port
+        You can have multiple options for properties
+        that have multiple attribute. (Not supported yet.)
+        - Interface: mongodb
+        - Parser: JSON, text.
+    -->
+    <Database>
+        <mongodb>
+            <IP>mongodb://localhost</IP>
+            <Port>27017</Port>
+            <!-- If authentication is enabled. -->
+            <!-- <Username>admin</Username> -->
+            <!-- <Password>admin</Password> -->
+            <Parser>JSON</Parser>
+            <!-- Database to use -->
+            <DbName>WCS</DbName>
+        </mongodb>
+    </Database>
+    <!-- LogParams
+    the logging parameters for agents, etc,
+        individual properties defined based on type of logging.
+        Supported - JSON over Network (TBD Phase 2) and File based
+    -->
+    <LogParams>
+        <Duration>10</Duration>
+        <!-- <Remote>
+            <Protocol>TCP</Protocol>
+            <IP>127.0.0.1</IP>
+            <Port>7534</Port>
+            <Level>info</Level>
+        </Remote> -->
+        <File>
+            <Type>Rotating</Type>
+            <!-- Size is in mb-->
+            <Size>100</Size>
+            <SizeLimit>2000</SizeLimit>
+            <Level>trace</Level>
+            <Limit>4</Limit>
+            <GroupRotate>true</GroupRotate>
+            <!-- In hours-->
+            <MaxLifeSpan>10</MaxLifeSpan>
+            <BackupLifeSpan>168</BackupLifeSpan>
+            <BackupTime>8</BackupTime>
+        </File>
+    </LogParams>
+
+    <!--Simulation
+    Robot and WCS based settings. -->
+    <Simulation>
+        <Robots>
+            <!-- Build the sensor details for stopping for obstacles, collision check -->
+            <ObstacleSensor>false</ObstacleSensor>
+            <!-- Stop robots on collision, requires Obstacle Sensing -->
+            <CollisionCheck>false</CollisionCheck>
+            <EnableSoftStop>false</EnableSoftStop>
+            <BatteryRandomizationSeed>85</BatteryRandomizationSeed>
+            <!--Set the random seed for the object manager (-1 to use current time, >0 to use a custom seed).-->
+            <!-- Only used for spawning of robots and custom obstacles -->
+            <GlobalSeed>2734</GlobalSeed>
+            <!-- Allow changes for wifi delay -->
+            <WifiDelay>
+                <!-- Enable the delay -->
+                <Enable>true</Enable>
+                <!-- Mean delay time (in seconds) -->
+                <MeanDelay>0.1</MeanDelay>
+                <!-- Max delay time (in seconds) -->
+                <MaxDelay>0.5</MaxDelay>
+                <!-- Mean delay time (in seconds) -->
+                <DeviationDelay>0.05</DeviationDelay>
+                <!-- EQUAL = 1, NORMAL = 2 -->
+                <Distribution>2</Distribution>
+                <!-- Max messages to store in queue -->
+                <MaxMessageQueueSize>100</MaxMessageQueueSize>
+                <!-- Scaling method used inside wifi delay zones.
+                LINEAR = 1,
+                LOGARITHMIC = 2,
+                DIMINISHING_RETURNS = 3,
+                EXPONENTIAL = 4 -->
+                <ScalingMethod>1</ScalingMethod>
+                <!-- Smoothing factor for exponential scaling -->
+                <SmoothingFactor>2.0</SmoothingFactor>
+            </WifiDelay>
+        </Robots>
+        <!-- Allow obstacles to be added to the scenario -->
+        <Obstacle>
+            <Enabled>true</Enabled>
+            <!--Maximum number of tries to spawn the obs in a zone.-->
+            <MaxTries>5</MaxTries>
+            <!--Required minimum distance for any obs from any robot.-->
+            <MinDistance>1.5</MinDistance>
+            <Rectangle>
+                <MinHeight>0.1</MinHeight>
+                <MaxHeight>0.3</MaxHeight>
+                <MinWidth>0.1</MinWidth>
+                <MaxWidth>0.3</MaxWidth>
+                <!--Safety margin-->
+                <SafetyMargin>0.01</SafetyMargin>
+            </Rectangle>
+        </Obstacle>
+        <!-- Config related to task generation and other environment parameters -->
+        <WCS>
+            <Environment>
+                <UseScanner>false</UseScanner>
+                <Conveyor>
+                    <!-- NONE = 1, NORMAL = 2, UNIFORM = 3, POISSON = 4, -->
+                    <Distribution>1</Distribution>
+                    <AverageInterArrivalTime>2</AverageInterArrivalTime>
+                    <MinInterArrivalTime>1</MinInterArrivalTime>
+                    <MaxInterArrivalTime>10</MaxInterArrivalTime>
+                    <StandardDeviation>2</StandardDeviation>
+                    <ConveyorCapacity>10</ConveyorCapacity>
+                </Conveyor>
+                <TurnTable>
+                    <TurningTime>2</TurningTime>
+                </TurnTable>
+                <Gate>
+                    <EndPoint>fms/estop</EndPoint>
+                </Gate>
+                <Lift>
+                    <!-- Lift level change time in seconds -->
+                    <LevelChangeTime>30</LevelChangeTime>
+                    <!-- Transfer time for robot, pallet, combined -->
+                    <TransferTime>
+                        <Robot>10</Robot>
+                        <Payload>20</Payload>
+                        <Combined>35</Combined>
+                    </TransferTime>
+                </Lift>
+            </Environment>
+            <!-- How each location behaves on the WCS side -->
+            <Station>
+                <TriggerConveyor>false</TriggerConveyor>
+                <Pick>
+                    <CheckTaskTermination>false</CheckTaskTermination>
+                </Pick>
+                <Drop>
+                    <Capacity>20</Capacity>
+                    <!-- NONE = 1, NORMAL = 2, UNIFORM = 3, POISSON = 4, -->
+                    <DistributionReset>2</DistributionReset>
+                    <AverageResetTime>30</AverageResetTime>
+                    <MinResetTime>20</MinResetTime>
+                    <MaxResetTime>40</MaxResetTime>
+                    <StandardDeviationReset>5</StandardDeviationReset>
+                </Drop>
+                <Hospital>
+                    <Capacity>20</Capacity>
+                    <!-- NONE = 1, NORMAL = 2, UNIFORM = 3, POISSON = 4, -->
+                    <DistributionReset>2</DistributionReset>
+                    <AverageResetTime>30</AverageResetTime>
+                    <MinResetTime>20</MinResetTime>
+                    <MaxResetTime>40</MaxResetTime>
+                    <StandardDeviationReset>5</StandardDeviationReset>
+                </Hospital>
+            </Station>
+            <Inventory>
+                <StoreInDatabase>true</StoreInDatabase>
+                <!-- Store the inventory as per scenario -->
+                <Database>
+                    <CollectionName>inventory</CollectionName>
+                </Database>
+            </Inventory>
+            <!-- WCS Task creation and usage -->
+            <Task>
+                <Dummy>true</Dummy>
+                <Knapsack>false</Knapsack>
+                <SkipTaskCompletion>false</SkipTaskCompletion>
+                <SkipTaskPickedState>false</SkipTaskPickedState>
+                <RandomizerSeed>37</RandomizerSeed>
+                <UseScanner>false</UseScanner>
+                <MaxTaskStorage>10</MaxTaskStorage>
+                <MaxTaskPutAway>2</MaxTaskPutAway>
+                <TaskPolicy>
+                    <Enabled>true</Enabled>
+                    <PolicyBased>true</PolicyBased>
+                    <SingleTaskPerSource>false</SingleTaskPerSource>
+                    <SingleTaskPerDestination>false</SingleTaskPerDestination>
+                    <ExclusiveSourceOrDestination>true</ExclusiveSourceOrDestination>
+                </TaskPolicy>
+                <!-- Database info -->
+                <Database>
+                    <CollectionName>wcsTask</CollectionName>
+                    <!-- Tasks Stay in db for this long (in hrs) Min 7 days-->
+                    <TimeTTL>24</TimeTTL>
+                </Database>
+            </Task>
+        </WCS>
+    </Simulation>
+</root>

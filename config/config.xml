@@ -1,0 +1,939 @@
+<?xml version="1.0"?>
+
+<!--Commandline arguments override the settings in this file.
+    You can see these if you run fmsApp -help.
+    The list of command line arguments are
+    - simulate
+    - config=PathToConfig
+    - scene=PathToMapFile
+    - logLevel=(debug,trace,error)
+    - logTo=folderPath
+
+    Supported Agents :
+        Agents : AMR1000, AMR100, ZIPPY_25, ZIPPY_10, VELOCE
+
+    Supported Controllers:
+        Controllers : coop
+
+    Supported Interfaces :
+        Task : rabbitmq
+        Agent: TCP
+        UI : REST
+        Database : mongodb
+
+    Supported Parsers :
+        Task : JSON
+        Agent: TEXT
+        UI : JSON
+        Database : BSON
+
+        Future support needs to be added for
+        - avro, protobuf,
+        - sql, Redis,
+        - gRPC, kafka
+        - zoneBased, highwayRuled
+-->
+
+<root>
+    <!--Database
+    Types, IP Address and Port
+        You can have multiple options for properties
+        that have multiple attribute. (Not supported yet.)
+        - Interface: mongodb
+        - Parser: JSON, text.
+    -->
+    <Database>
+        <mongodb>
+            <IP>mongodb://localhost</IP>
+            <Port>27017</Port>
+            <!-- If authentication is enabled. -->
+            <!-- <Username>admin</Username> -->
+            <!-- <Password>admin</Password> -->
+            <Parser>JSON</Parser>
+            <!-- Database to use -->
+            <DbName>FMS</DbName>
+        </mongodb>
+    </Database>
+    <!--Server
+    - TCP
+       IP, Port number
+    - Rabbitmq
+        IP Address and Port
+        You can have multiple options for properties
+        that have multiple attribute. (Not supported yet.)
+        - Parser: JSON, text.
+    -->
+    <Network>
+        <!-- Connectivity for agents -->
+        <TCP>
+            <Port>65123</Port>
+            <Secure>false</Secure>
+            <AutoRemoval>true</AutoRemoval>
+            <MaxClients>550</MaxClients>
+            <!-- For cloud set this to the ip through which data is coming -->
+            <Gateway>localhost</Gateway>
+            <GatewayPort>65123</GatewayPort>
+            <!-- If the connection is to be alive if there is no communication -->
+            <KeepAlive>true</KeepAlive>
+            <!-- Value in seconds -->
+            <KeepAliveTime>10</KeepAliveTime>
+            <!-- Value Checked after this many seconds -->
+            <KeepAliveInterval>5</KeepAliveInterval>
+            <!-- Value Checked this many times -->
+            <KeepAliveProbeCount>5</KeepAliveProbeCount>
+            <!-- Timeout for when there is no data. -->
+            <UserTimeout>30</UserTimeout>
+            <!-- If you want to use udp instead of TCP -->
+            <TryUDP>false</TryUDP>
+            <!-- If you want to ignore ip based id mapping-->
+            <IgnoreIP>false</IgnoreIP>
+            <!-- If you want enable ipv6 listening -->
+            <EnableIPv6>false</EnableIPv6>
+        </TCP>
+        <!-- Rabbitmq connection -->
+        <Rabbitmq>
+            <IP>127.0.0.1</IP>
+            <Port>5672</Port>
+            <Username>guest</Username>
+            <Password>guest</Password>
+            <VirtualHost>/</VirtualHost>
+            <Parser>JSON</Parser>
+            <Heartbeat>30</Heartbeat>
+            <MessageTTL>60000</MessageTTL>
+            <RetryCount>5</RetryCount>
+            <!-- Time after which message are resent -->
+            <RetryTime>1</RetryTime>
+            <!-- Time after which message are resent for final try-->
+            <FinalRetryTime>3</FinalRetryTime>
+            <Props>
+                <AppID>ZIPPY</AppID>
+                <Type>2</Type>
+            </Props>
+            <UseRest>false</UseRest>
+        </Rabbitmq>
+        <!-- Config for WCS connection like checking for any API that is to come from WCS -->
+        <WCS>
+            <IP>127.0.0.1</IP>
+            <Port>8092</Port>
+            <Secure>false</Secure>
+            <RoutingKey></RoutingKey>
+            <Certificate>assets://cert/localhost.crt</Certificate>
+            <PrivateKey>assets://cert/localhost.key</PrivateKey>
+            <VerifyFile></VerifyFile>
+            <Timeout>2</Timeout>
+        </WCS>
+        <CallButton>
+            <IP>127.0.0.1</IP>
+            <Port>8092</Port>
+            <Secure>false</Secure>
+            <RoutingKey></RoutingKey>
+            <Certificate>assets://cert/localhost.crt</Certificate>
+            <PrivateKey>assets://cert/localhost.key</PrivateKey>
+            <VerifyFile></VerifyFile>
+            <Timeout>2</Timeout>
+        </CallButton>
+        <Robot>
+            <IP>127.0.0.1</IP>
+            <Port>72</Port>
+            <Secure>false</Secure>
+            <CallbackSecure>true</CallbackSecure>
+            <CallbackPort>false</CallbackPort>
+            <CallbackIP>127.0.0.1</CallbackIP>
+            <!-- If we use rabbitmq communication we need to set a discovery topic -->
+            <Discovery>
+                <Enable>false</Enable>
+                <ListenExchange>FMS.ROBOT.DISCOVERY</ListenExchange>
+                <ListenQueue>FMS.ROBOT.DISCOVERY</ListenQueue>
+                <ListenRoutingKey>FMS</ListenRoutingKey>
+                <!-- This is provided as a alternative. -->
+                <RecvEndpoint>fms/robot/discovery</RecvEndpoint>
+            </Discovery>
+            <!-- Actual communication happens on this. Routing key is Id for now. and it will change
+            per robot. -->
+            <Communication>
+                <PublishExchange>FMS.ROBOT.UPDATE</PublishExchange>
+                <PublishQueueAutoDelete>true</PublishQueueAutoDelete>
+                <PublishRoutingKey>FMS</PublishRoutingKey>
+                <ListenExchange>FMS.ROBOT.FEEDBACK</ListenExchange>
+                <ListenQueueAutoDelete>true</ListenQueueAutoDelete>
+                <ListenRoutingKey>FMS</ListenRoutingKey>
+                <!-- This is provided as a alternative. May not work for this case. -->
+                <SendEndpoint>fms/robot/update</SendEndpoint>
+                <RecvEndpoint>fms/robot/feedback</RecvEndpoint>
+            </Communication>
+        </Robot>
+        <!-- Config for gate connection  and robot switch off. -->
+        <Safety>
+            <IP>127.0.0.1</IP>
+            <Port>8092</Port>
+            <Secure>false</Secure>
+            <RoutingKey></RoutingKey>
+            <Certificate>assets://cert/localhost.crt</Certificate>
+            <PrivateKey>assets://cert/localhost.key</PrivateKey>
+            <VerifyFile></VerifyFile>
+            <EndPoint>wcs/canStartFleet</EndPoint>
+            <SwitchOff>gateInterface/sleepMode</SwitchOff>
+            <Timeout>2</Timeout>
+        </Safety>
+        <gRPC>
+            <IP>127.0.0.1</IP>
+            <Port>55555</Port>
+            <Secure>false</Secure>
+            <RoutingKey></RoutingKey>
+            <Certificate>assets://cert/localhost.crt</Certificate>
+            <PrivateKey>assets://cert/localhost.key</PrivateKey>
+            <VerifyFile></VerifyFile>
+            <Timeout>2</Timeout>
+        </gRPC>
+        <!-- RMS Section is used by fleets, for ensuring Fleet can make calls to RMS-->
+        <RMS>
+            <IP>127.0.0.1</IP>
+            <Port>7013</Port>
+            <Secure>false</Secure>
+            <RoutingKey></RoutingKey>
+            <Certificate>assets://cert/localhost.crt</Certificate>
+            <PrivateKey>assets://cert/localhost.key</PrivateKey>
+            <VerifyFile></VerifyFile>
+            <Timeout>2</Timeout>
+            <EndPoint>fms/update</EndPoint>
+        </RMS>
+        <!-- OPC Section -->
+        <OPC>
+            <IP>127.0.0.1</IP>
+            <Port>65023</Port>
+            <Secure>false</Secure>
+            <RoutingKey></RoutingKey>
+            <Certificate>assets://cert/localhost.crt</Certificate>
+            <PrivateKey>assets://cert/localhost.key</PrivateKey>
+            <VerifyFile></VerifyFile>
+            <Timeout>2</Timeout>
+            <EndPoint>iotgateway/data</EndPoint>
+            <EndpointReading>iotgateway/read</EndpointReading>
+            <EndpointSending>iotgateway/write</EndpointSending>
+            <Autocreate>true</Autocreate>
+            <Scale>
+                <x>1000</x>
+                <y>1000</y>
+                <z>1</z>
+            </Scale>
+            <!-- Retransmit timeout in case if shuttle send no data(in seconds) -->
+            <ShuttleRxTimeout>10</ShuttleRxTimeout>
+            <ShuttleTxTimeout>10</ShuttleTxTimeout>
+            <DisableWarning>false</DisableWarning>
+            <Enabled>true</Enabled>
+            <Tags>
+                <LaneHealth>FMS.LANE_HEALTHY</LaneHealth>
+                <LaneVerify>CONV.LANE_HEALTHY</LaneVerify>
+            </Tags>
+            <Gateway>
+                <IP>127.0.0.1</IP>
+                <Port>65022</Port>
+                <Secure>false</Secure>
+                <RoutingKey></RoutingKey>
+                <Certificate>assets://cert/localhost.crt</Certificate>
+                <PrivateKey>assets://cert/localhost.key</PrivateKey>
+                <VerifyFile></VerifyFile>
+                <Timeout>2</Timeout>
+                <EndpointReading>iotgateway/read</EndpointReading>
+                <EndpointSending>iotgateway/write</EndpointSending>
+            </Gateway>
+        </OPC>
+        <!-- Store the connection to UI for REST and updating the fleet instance. -->
+        <UIBackend>
+            <IP>127.0.0.1</IP>
+            <Port>8092</Port>
+            <Secure>false</Secure>
+            <RoutingKey></RoutingKey>
+            <Certificate>assets://cert/localhost.crt</Certificate>
+            <PrivateKey>assets://cert/localhost.key</PrivateKey>
+            <VerifyFile></VerifyFile>
+            <Timeout>2</Timeout>
+            <EndPoint>fleet/registerOrUpdateFleet</EndPoint>
+        </UIBackend>
+        <!-- Store the agent network connection information. -->
+        <Database>
+            <CollectionName>networkData</CollectionName>
+        </Database>
+    </Network>
+
+    <!-- The logging parameters for agents, etc,
+        individual properties defined based on type of logging.
+        Supported - JSON over Network (TBD Phase 2) and File based
+    -->
+    <LogParams>
+        <Duration>10</Duration>
+        <!-- <Remote>
+            <Protocol>TCP</Protocol>
+            <IP>127.0.0.1</IP>
+            <Port>7534</Port>
+            <Level>info</Level>
+        </Remote> -->
+        <File>
+            <Type>Rotating</Type>
+            <!-- Size is in mb-->
+            <Size>100</Size>
+            <SizeLimit>2000</SizeLimit>
+            <Level>trace</Level>
+            <Limit>4</Limit>
+            <GroupRotate>true</GroupRotate>
+            <!-- In hours-->
+            <MaxLifeSpan>10</MaxLifeSpan>
+            <BackupLifeSpan>168</BackupLifeSpan>
+            <BackupTime>8</BackupTime>
+        </File>
+        <Events>
+            <!-- Enable events -->
+            <Enable>true</Enable>
+            <Database>
+                <CollectionName>events</CollectionName>
+                <!-- events Stay in db for this long (in hrs) Min 7 days-->
+                <TimeTTL>168</TimeTTL>
+                <!-- Requests to fetch from db to restore (in hrs) -->
+                <RestoreTime>24</RestoreTime>
+            </Database>
+            <!-- Communicate events to wcs -->
+            <Rabbitmq>
+                <PublishExchange>FMS.EVENTS</PublishExchange>
+                <PublishQueue>FMS.EVENTS</PublishQueue>
+                <PublishRoutingKey>FMS</PublishRoutingKey>
+                <!-- This is provided as a alternative. -->
+                <SendEndpoint>wcs/events</SendEndpoint>
+            </Rabbitmq>
+            <!-- Inform wcs of the stop event. This is a delayed information.
+            Primarily used to ensure that gate are opened after robots stop. -->
+            <NotifyEStop>true</NotifyEStop>
+            <ConfirmationEndPoint>wcs/fleetStatus</ConfirmationEndPoint>
+            <EStopTimeout>10</EStopTimeout>
+        </Events>
+        <Notification>
+            <!-- Enable events notification -->
+            <Enable>false</Enable>
+            <Database>
+                <CollectionName>notificationRequests</CollectionName>
+            </Database>
+            <!-- Enable email based notifications -->
+            <Mail>true</Mail>
+            <!-- Twilio API -->
+            <SMS>true</SMS>
+            <!-- Send teams notifications -->
+            <Teams>true</Teams>
+            <!-- Next we need to enable specific event types like charge failure -->
+            <Events></Events>
+        </Notification>
+    </LogParams>
+
+    <!--Define
+    the fleet parameters, Run in recovery mode.
+        - Algorithm : coop, [zone based, traffic handling]
+            Copp, rms
+        - ReservationMethod
+            SingleNodeReservation [Copp]
+            CoupledNodeReservation [Copp]
+            PyConflictResolution [Copp]
+    -->
+    <Fleet>
+        <!-- Name of FMS Server -->
+        <Name>TestServer</Name>
+        <!-- Change the value to rms/Copp -->
+        <DefaultController>Copp</DefaultController>
+        <!-- Reservation method to be used -->
+        <DefaultReservationMethod>CoupledNodeReservation</DefaultReservationMethod>
+        <!-- Allowed values are aStar and dijkstra -->
+        <PathGenerator>astar</PathGenerator>
+        <!-- Used for path generation, angles less than are not considered for rotation -->
+        <TurnThetaTolerance>0.2</TurnThetaTolerance>
+        <!-- Base tolerance -->
+        <PositionTolerance>0.1</PositionTolerance>
+        <!-- Update the edge weight after each step helps out in weeding the already traveled paths -->
+        <UpdateTravelWeightsEdge>false</UpdateTravelWeightsEdge>
+        <!-- Reservation window -->
+        <LookAheadPoints>7</LookAheadPoints>
+        <ReservationWindow>7</ReservationWindow>
+        <!-- Don't use these settings unless you know what you are doing.
+             You can also set the values only for the ones you want.
+             The values are bound to (0.2,2)
+        <ReductionFactor>0.8</ReductionFactor>
+        <VanishingFactor>1</VanishingFactor>
+        <TurnCostReductionFactor>0.5</TurnCostReductionFactor>
+        -->
+        <!-- Use thread Pool to parallelize node reservation -->
+        <UseThreadPool>false</UseThreadPool>
+        <!-- Config for coupled node reservation -->
+        <CoupledNodeReservation>
+            <!-- Form Agent clusters (for coupled-node reservation) -->
+            <FormAgentClusters>true</FormAgentClusters>
+            <!-- Use Bi-Directional Constraints (for coupled-node reservation) -->
+            <UseBiDirectionalConstraints>false</UseBiDirectionalConstraints>
+            <!-- Restrict-On multiplier for Coupled-Node Reservation -->
+            <RestrictOnMultiplier>100</RestrictOnMultiplier>
+            <!-- Restrict-By multiplier for Coupled-Node Reservation-->
+            <RestrictByMultiplier>1</RestrictByMultiplier>
+        </CoupledNodeReservation>
+        <!-- -1 to set thread count as hardware concurrency -->
+        <ThreadCount>7</ThreadCount>
+        <!-- Look ahead length is given more priority than look ahead points, Selection is done this
+        distance -->
+        <LookAheadLength>-1</LookAheadLength>
+        <NearestNodeTolerance>-1</NearestNodeTolerance>
+        <!-- Used by PyCr to limit decision variables  -->
+        <MaximumPathPoints>40</MaximumPathPoints>
+        <!-- In radians-->
+        <CircleFootPrintThreshold>0.1</CircleFootPrintThreshold>
+        <CheckPathGenerateValidity>true</CheckPathGenerateValidity>
+        <!-- Generate new paths on-the-fly-->
+        <GenerateOnTheFlyPath>false</GenerateOnTheFlyPath>
+        <!-- Use Virtual Paths (paths that do NOT depend on edge connectivity)-->
+        <!-- It is imperative that this is false for ZIPPY for now -->
+        <UseVirtualPath>false</UseVirtualPath>
+        <!-- Only used in rms to control motion of agent if based on traffic light state -->
+        <RotateFirst>true</RotateFirst>
+
+        <!-- If you want to drop at multiple angles -->
+        <EnableMultipleYaw>false</EnableMultipleYaw>
+        <!-- In radians -->
+        <AngleVariation>0.52</AngleVariation>
+        <!-- Allows for slightly faster pick for manual pick station requiring rotation to move out -->
+        <CompensateLoading>false</CompensateLoading>
+        <!-- Used to match the frame for veloce fms -->
+        <FrameCompensation>false</FrameCompensation>
+        <!-- Don't replan when going to transient park -->
+        <NoReplanOnTransientPark>false</NoReplanOnTransientPark>
+        <!-- Fleet can communicate its running status to agent -->
+        <NotifyStatusToAgent>true</NotifyStatusToAgent>
+
+        <!-- Check if the condition is valid prior to starting fleet -->
+        <StartFleetConditions>
+            <!-- Debounce time to avoid spamming of button -->
+            <ResumeTime>5</ResumeTime>
+            <!-- Only same source/ unnamed can unlock fleet -->
+            <StopLock>false</StopLock>
+            <!-- If the parcel has fallen -->
+            <ParcelFallen>false</ParcelFallen>
+            <!-- If the gate connection is open or not -->
+            <GateConfirmation>true</GateConfirmation>
+        </StartFleetConditions>
+        <!-- Check if the condition is valid for stopping fleet -->
+        <StopFleetConditions>
+            <!-- Set the safety trigger to start the fleet -->
+            <SafetyTrigger>
+                <Enable>false</Enable>
+                <Timeout>10</Timeout>
+            </SafetyTrigger>
+            <!-- Allow events to do a global stop for the below events -->
+            <Events>
+                <!-- Enable event stops -->
+                <Enable>true</Enable>
+            </Events>
+            <!-- By default a ui stop is a soft stop, allowing robots to stop at barcode However, If
+            a wes trigger comes, fleet can decide if the default mode of stopping is hard stop or
+            softStop. For backward compatibility  -->
+            <DefaultHardStop>false</DefaultHardStop>
+        </StopFleetConditions>
+        <!-- If the fleet is stopped then trigger these notifications. -->
+        <StopFleetTriggers>
+            <!-- If all the agents have been stopped or not after this time. -->
+            <AgentStopTimeout>10</AgentStopTimeout>
+            <!-- Stop all movable picks -->
+            <StopAllMovablePick>true</StopAllMovablePick>
+        </StopFleetTriggers>
+        <!-- Control the statistics calculation of fleet. -->
+        <Statistics>
+            <!-- What is the throughput expectation. Only for zippy -->
+            <ExpectedThroughput>1500</ExpectedThroughput>
+            <!-- Storing the timeseries. -->
+            <Database>
+                <CollectionName>fleetStatData</CollectionName>
+                <!-- Fleet statistics Stay in db for this long (in hrs) Min 7 days-->
+                <TimeTTL>24</TimeTTL>
+            </Database>
+        </Statistics>
+    </Fleet>
+
+    <!-- Define the config for loading scene-->
+    <Scene>
+        <Database>
+            <CollectionName>sceneData</CollectionName>
+        </Database>
+        <!-- Inventory -->
+        <Inventory>
+            <Database>
+                <CollectionName>stockData</CollectionName>
+            </Database>
+        </Inventory>
+        <!-- Inventory by location-->
+        <InventoryLocation>
+            <Database>
+                <CollectionName>stockLocationData</CollectionName>
+            </Database>
+        </InventoryLocation>
+        <!-- Auto compute the centring node. -->
+        <ComputeCenteringNode>false</ComputeCenteringNode>
+        <!-- Mode of operation for bin tasks. 
+                1. Standard(false) : pick from start and end 
+                2. Short(true) : Pick from the centering node   
+                and drop from the centering node by using dock -->
+        <OperationMode>false</OperationMode>
+    </Scene>
+
+    <!-- Define the agent config for each robot-->
+    <!-- Timeouts can be disabled by setting value to -1 -->
+
+    <Scenario>
+        <Agent>
+            <!-- Set the interface type, v0 for old, v1 for default -->
+            <InterfaceType>v1</InterfaceType>
+            <!-- Agent connection parameters -->
+            <Default>
+                <Type>Zippy</Type>
+                <Variant>V10</Variant>
+                <!-- Client is now converted to override option when enabled. -->
+                <!-- <Client>StringOld</Client> -->
+                <Behavior>behaviors://agentBehavior.xml</Behavior>
+                <!-- ReadIdFromDb : if the parser is very old and no agent id is present message, we
+                need to specify and configure id in db. -->
+                <ReadIdFromDb>false</ReadIdFromDb>
+            </Default>
+            <!-- Send Robot at Position update -->
+            <Rabbitmq>
+                <PublishExchange>FMS.ROBOT-AT-POSITION</PublishExchange>
+                <PublishQueue>FMS.ROBOT-AT-POSITION</PublishQueue>
+                <PublishRoutingKey>FMS</PublishRoutingKey>
+                <!-- This is provided as a alternative. -->
+                <SendEndpoint>wcs/rap</SendEndpoint>
+            </Rabbitmq>
+            <!-- Handle task state on de-init and init -->
+            <Tasks>
+                <!-- If the task type is bin and task is not loaded then allow task to be cancelled -->
+                <CancelBeforePicking>true</CancelBeforePicking>
+            </Tasks>
+            <!-- Handle events -->
+            <EventHandling>
+                <!-- Distance after which error is reported if its persistent -->
+                <ErrorTolerance>0.15</ErrorTolerance>
+                <!-- Time after which NAV error is reported if its persistent -->
+                <ErrorRepeatInterval>-1</ErrorRepeatInterval>
+                <!-- Resets error when robot sends an error less state, may increase the noise in
+                errors if they are transient and happen repeatedly -->
+                <ErrorRepeatOnReset>false</ErrorRepeatOnReset>
+                <!-- Clears any error on auto mode manual change -->
+                <ErrorAutoManualModeChange>false</ErrorAutoManualModeChange>
+                <!-- Time after which robot is considered unavailable on network -->
+                <InactivityTimeout>10</InactivityTimeout>
+                <!-- This is the time after when robot is considered switched off if there is no
+                communication -->
+                <OffStateTimeout>50</OffStateTimeout>
+            </EventHandling>
+            <!-- Store agent data -->
+            <Database>
+                <CollectionName>scenarioData</CollectionName>
+            </Database>
+            <!-- Used for level changes and maintenance requests -->
+            <Redirection>
+                <Enabled>true</Enabled>
+                <!-- Time after which request is removed after being completed, also serves as
+                debounce time -->
+                <RequestDeletionTime>10</RequestDeletionTime>
+                <!-- Time after which the request is checked -->
+                <RecheckTimeout>10</RecheckTimeout>
+                <!-- Time after which the robot is considered stationary if stuck in movement. -->
+                <MaintenanceStationaryTimeout>30</MaintenanceStationaryTimeout>
+                <!-- Notification end point on wcs end to notify for maintenance -->
+                <MaintenanceNotifyEndpoint>wcs/maintenance/update</MaintenanceNotifyEndpoint>
+                <LevelChangeNotifyEndpoint>wcs/levelChange/update</LevelChangeNotifyEndpoint>
+                <!-- Store the requests in the database -->
+                <Database>
+                    <CollectionName>redirectionData</CollectionName>
+                    <!-- Requests Stay in db for this long (in hrs) Min 7 days-->
+                    <TimeTTL>24</TimeTTL>
+                    <!-- Requests to fetch from db to restore (in hrs) -->
+                    <RestoreTime>8</RestoreTime>
+                </Database>
+            </Redirection>
+            <!-- Navigation related parameters -->
+            <Navigation>
+                <!-- If navigating then leave reservation of previous node after robot has traveled
+                percentage of edge -->
+                <NodeReachingPercent>0.5</NodeReachingPercent>
+                <!-- For creating path lookup of node based on agent location -->
+                <NearestNodeCheck>true</NearestNodeCheck>
+                <!-- Considered at the node if within this distance of node -->
+                <NearestNodeTolerance>0.1</NearestNodeTolerance>
+                <!-- Agent is considering non moving if it has a path and does not move for time n
+                seconds -->
+                <StationaryTimeout>10</StationaryTimeout>
+            </Navigation>
+        </Agent>
+        <!--  -->
+        <Location>
+            <!-- Interface type for sending location updates and receiving location updates -->
+            <InterfaceType>v1</InterfaceType>
+            <!-- Communicate location update -->
+            <Rabbitmq>
+                <PublishExchange>FMS.STATION.UPDATE</PublishExchange>
+                <PublishQueue>FMS.STATION.UPDATE</PublishQueue>
+                <PublishRoutingKey>FMS</PublishRoutingKey>
+                <ListenExchange>FMS.STATION.STATUS</ListenExchange>
+                <ListenQueue>FMS.STATION.STATUS</ListenQueue>
+                <ListenRoutingKey>FMS</ListenRoutingKey>
+                <!-- This is provided as a alternative. -->
+                <SendEndpoint>wcs/station/update</SendEndpoint>
+                <RecvEndpoint>wcs/station/status</RecvEndpoint>
+            </Rabbitmq>
+            <!-- Free charger, pick allocation if robot is shutdown -->
+            <FreeAllocationOnAgentShutdown>true</FreeAllocationOnAgentShutdown>
+            <!-- Time to wait at the tipping station -->
+            <TippingStationTimeout>60</TippingStationTimeout>
+
+            <!-- Charge settings  -->
+            <Charge>
+                <!-- Valid options are nearest, fifo and optimized -->
+                <Method>nearest</Method>
+                <Critical>20</Critical>
+                <Minimum>30</Minimum>
+                <Acceptable>50</Acceptable>
+                <Maximum>75</Maximum>
+                <Warning>30</Warning>
+                <!-- Request for show charge after this threshold -->
+                <Slow>80</Slow>
+                <!-- Time after which request is withdrawn if not allocated -->
+                <SlowChargeRequestDuration>5</SlowChargeRequestDuration>
+                <!-- Value is in hours-->
+                <FullChargeTime>168</FullChargeTime>
+                <SlowChargeTime>168</SlowChargeTime>
+                <CalibrateAlways>true</CalibrateAlways>
+                <CalibrateSleep>true</CalibrateSleep>
+                <CalibrationCurrent>2</CalibrationCurrent>
+                <CalibrationPercentage>94</CalibrationPercentage>
+                <CalibrationCurrentFailureTime>30</CalibrationCurrentFailureTime>
+                <CalibrationFailureTime>60</CalibrationFailureTime>
+                <PositionTolerance>0.1</PositionTolerance>
+                <AngularTolerance>0.1</AngularTolerance>
+                <SkipChargeSequenceAllowed>false</SkipChargeSequenceAllowed>
+                <LastChargerAllocationOverrideTime>30</LastChargerAllocationOverrideTime>
+                <Timeout>10</Timeout>
+            </Charge>
+            <!-- Pick settings -->
+            <Pick>
+                <!-- After this time pick is deactivated -->
+                <InactivityTimeout>300</InactivityTimeout>
+                <SleepTimeout>400</SleepTimeout>
+                <SleepCheckActiveTask>false</SleepCheckActiveTask>
+                <ForceAllocateChargeTimeout>30</ForceAllocateChargeTimeout>
+                <ForceAllocateTimeout>50</ForceAllocateTimeout>
+                <AllocationDistanceLimit>0.7</AllocationDistanceLimit>
+                <!-- Valid options are NEAREST, FIFO , NEARESTFIFO and optimized -->
+                <Method>optimized</Method>
+                <BiasNearestFifo>1.5</BiasNearestFifo>
+                <PickTaskCount>true</PickTaskCount>
+                <QueueOverFlow>1.5</QueueOverFlow>
+                <UseEuclidean>true</UseEuclidean>
+                <QueueCost>1.0</QueueCost>
+                <QueueSizeFactor>false</QueueSizeFactor>
+                <DistanceCost>0.01</DistanceCost>
+                <PriorityToAgent>false</PriorityToAgent>
+                <ForceAllocateFromTP>false</ForceAllocateFromTP>
+                <Threaded>true</Threaded>
+            </Pick>
+            <!-- Park settings -->
+            <Park>
+                <!-- Valid options are nearest, fifo and nearestFIFO-->
+                <Method>Nearest</Method>
+                <PositionTolerance>0.1</PositionTolerance>
+            </Park>
+            <!-- Bin settings -->
+            <Bin>
+                <!-- Valid options are nearest, fifo and optimized, dropMatched -->
+                <Method>Optimized</Method>
+                <UseEuclidean>false</UseEuclidean>
+                <MaxSearchDistance>-1</MaxSearchDistance>
+                <DistanceWeight>1.0</DistanceWeight>
+                <PriorityWeight>1.0</PriorityWeight>
+                <CheckDestinationOccupied>false</CheckDestinationOccupied>
+                <PositionTolerance>0.1</PositionTolerance>
+                <AngularTolerance>0.1</AngularTolerance>
+                <Timeout>30</Timeout>
+                <TreatBinAsStorage>true</TreatBinAsStorage>
+            </Bin>
+            <!-- Wait settings -->
+            <Wait>
+                <!-- Valid options are nearest, fifo and optimized -->
+                <Method>FIFO</Method>
+                <PositionTolerance>0.1</PositionTolerance>
+            </Wait>
+            <!-- Drop settings -->
+            <Drop>
+                <!-- Valid options are confirmRequired, limited, trigger, combined
+                 confirmRequired : Sortie like drop, figure out over location presence over API (all drop locations
+                get treated same)
+                 limited : unconstrained drop.
+                 trigger : trigger conveyor at drop using API first. (all drop locations get treated same)
+                 combined : mix of diff types on the basis of conveyor type at drop.
+                 -->
+                <Method>trigger</Method>
+                <!-- Confirm Modes: RABBITMQ, API,  API is called at start-->
+                <ConfirmMode>API</ConfirmMode>
+                <!--  -->
+                <ConfirmAtStart>false</ConfirmAtStart>
+                <!--  -->
+                <ConfirmationEndPoint>wes-dispatch/dispatch/checkSortieAtPosition</ConfirmationEndPoint>
+                <!--  -->
+                <TriggerEndPoint>wes-dispatch/drop/trigger</TriggerEndPoint>
+                <!--  -->
+                <ValidateDropEndPoint>wes-dispatch/drop/validate</ValidateDropEndPoint>
+                <!--  -->
+                <TaskResendTimeout>2</TaskResendTimeout>
+                <!--  -->
+                <ConfirmationRequestTimeout>2</ConfirmationRequestTimeout>
+                <!--  -->
+                <TriggerRequestTimeout>5</TriggerRequestTimeout>
+                <!--  -->
+                <ValidateRequestTimeout>-1</ValidateRequestTimeout>
+                <!-- This decide the amount of time to wait at location if its off -->
+                <DropWaitTimeout>10</DropWaitTimeout>
+                <!-- This decide the amount of time to wait at location availability if its on -->
+                <DropAvailableTimeout>10</DropAvailableTimeout>
+                <!-- Drop the parcel with two step process to ensure that parcels are transferred
+                successfully. -->
+                <DropValidateTwoStep>false</DropValidateTwoStep>
+                <!-- Hospital is unrestricted drop, if true treat as drop. -->
+                <TreatHospitalAsDrop>true</TreatHospitalAsDrop>
+            </Drop>
+            <!-- Hospital related config -->
+            <hospital>
+                <!-- fifo, nearest -->
+                <Method>Nearest</Method>
+            </hospital>
+            <Workstation>
+                <Method></Method>
+                <!-- Available value are : priority, time. -->
+                <ResolutionMethod>priority</ResolutionMethod>
+                <!--  -->
+                <CallButtonIndependent>true</CallButtonIndependent>
+                <!--  -->
+                <GlowEndPoint>callButton/glowButton</GlowEndPoint>
+                <!--  -->
+                <StatCalculationTimer>10</StatCalculationTimer>
+                <!--  -->
+                <SyncMode>true</SyncMode>
+                <!--  -->
+                <PositionTolerance>0.4</PositionTolerance>
+            </Workstation>
+            <!--  -->
+            <TransientPark>
+                <!--  -->
+                <Method>Optimized</Method>
+                <TurnAroundDelayTimeout>10</TurnAroundDelayTimeout>
+            </TransientPark>
+
+            <!-- Location data -->
+            <LocationDatabase>
+                <CollectionName>locationData</CollectionName>
+            </LocationDatabase>
+            <!-- Location statistics -->
+            <StatisticsDatabase>
+                <CollectionName>locationStatData</CollectionName>
+                <!-- Statistics Stay in db for this long (in hrs) Min 7 days-->
+                <TimeTTL>24</TimeTTL>
+            </StatisticsDatabase>
+            <!-- Location Manager data -->
+            <ManagerDatabase>
+                <CollectionName>managerData</CollectionName>
+            </ManagerDatabase>
+        </Location>
+    </Scenario>
+
+    <!-- Task Interface and more details.
+        You can have multiple options.(Not supported yet.)
+        - Interface: rabbitmq
+        - SimulateMode: Random, RoundRobin, ReadFromFile-->
+    <Task>
+        <!-- Parser for communication to wcs  -->
+        <InterfaceType>v1</InterfaceType>
+        <!-- Cancel task that came before robot at position at pick -->
+        <CancelOldTask>true</CancelOldTask>
+        <!-- Check for destination in tasks for bin type. -->
+        <CheckForDestination>true</CheckForDestination>        
+        <!-- Gives priority to tasks for current location of the robot -->
+        <MaxIteration>150</MaxIteration>
+        <!-- Zone Based task allocation -->
+        <ZoneBasedAllocation>false</ZoneBasedAllocation>
+        <!-- Check if the source station is valid and enabled -->
+        <SourceStationCheck>true</SourceStationCheck>
+        <!-- Check if the destination station is valid and enabled -->
+        <DestinationStationCheck>false</DestinationStationCheck>
+        <!-- Create task using API. Note : Only use rabbitmq or API -->
+        <CreateTaskUsingAPI>false</CreateTaskUsingAPI>
+        <!-- Communication information -->
+        <Rabbitmq>
+            <PublishExchange>FMS.UPDATE-TASK</PublishExchange>
+            <PublishQueue>FMS.UPDATE-TASK</PublishQueue>
+            <PublishRoutingKey>FMS</PublishRoutingKey>
+            <PublishExchangeType>fanout</PublishExchangeType>
+            <ListenExchange>FMS.RECEIVE_TASK</ListenExchange>
+            <ListenQueue>FMS.RECEIVE_TASK</ListenQueue>
+            <ListenRoutingKey>FMS</ListenRoutingKey>
+            <!-- This is provided as a alternative. -->
+            <SendEndpoint>wcs/task/update</SendEndpoint>
+            <RecvEndpoint>wcs/task/receive</RecvEndpoint>
+        </Rabbitmq>
+        <!-- Store the task in database -->
+        <Database>
+            <CollectionName>fmsTask</CollectionName>
+            <!-- Tasks Stay in db for this long (in hrs) Min 7 days-->
+            <TimeTTL>24</TimeTTL>
+            <!-- Task to fetch from db to restore (in hrs) -->
+            <RestoreTime>8</RestoreTime>
+        </Database>
+        <!-- Statistics calculation -->
+        <Statistics>
+            <!-- How many samples are taken -->
+            <SampleCount>15</SampleCount>
+            <!-- How frequently the samples are taken (in sec) -->
+            <SampleTime>60</SampleTime>
+            <!-- Store the sample data in database -->
+            <Database>
+                <CollectionName>throughputData</CollectionName>
+                <!-- Tasks statistics Stay in db for this long (in hrs) Min 7 days-->
+                <TimeTTL>24</TimeTTL>
+            </Database>
+        </Statistics>
+        <!-- Type of allocation -->
+        <Manager>
+            <!-- FIFO or PYTA (Python Task Allocator) -->
+            <Allocator>FIFO</Allocator>
+        </Manager>
+    </Task>
+
+    <!--UI
+    Interface and more details.
+        You can have multiple options.(Not supported yet.)
+        - Interface: rest
+        - SimulateMode: Random, RoundRobin, ReadFromFile-->
+    <UIInterface>
+        <!-- Set to true to enable old frontend -->
+        <UseOld>true</UseOld>
+        <!-- Fleet registering timeout attempt (in sec) -->
+        <RegistrationTimeout>60</RegistrationTimeout>
+        <!-- High frequency interface -->
+        <Rabbitmq>
+            <!-- Update the fleet status -->
+            <Fleet>
+                <!-- (in sec) -->
+                <UpdateTime>1.0</UpdateTime>
+                <PublishExchange>amq.topic</PublishExchange>
+                <PublishRoutingKey>uiStates_TestServer</PublishRoutingKey>
+                <PublishExchangeType>topic</PublishExchangeType>
+            </Fleet>
+            <!-- Update robot high frequency data -->
+            <RobotOdom>
+                <!-- (in sec) -->
+                <UpdateTime>1.0</UpdateTime>
+                <PublishExchange>amq.topic</PublishExchange>
+                <PublishRoutingKey>robotOdom_TestServer</PublishRoutingKey>
+                <PublishExchangeType>topic</PublishExchangeType>
+            </RobotOdom>
+            <!-- Update robot low frequency data -->
+            <RobotMetrics>
+                <!-- (in sec) -->
+                <UpdateTime>1.0</UpdateTime>
+                <PublishExchange>amq.topic</PublishExchange>
+                <PublishRoutingKey>robotMetrics_TestServer</PublishRoutingKey>
+                <PublishExchangeType>topic</PublishExchangeType>
+            </RobotMetrics>
+            <!-- Update location data -->
+            <Location>
+                <InterfaceType>v0</InterfaceType>
+                <!-- (in sec) -->
+                <UpdateTime>1.0</UpdateTime>
+                <PublishExchange>amq.topic</PublishExchange>
+                <PublishRoutingKey>locationMetrics_TestServer</PublishRoutingKey>
+                <PublishExchangeType>topic</PublishExchangeType>
+            </Location>
+            <!-- Update the task data -->
+            <Task>
+                <UpdateTime>1.0</UpdateTime>
+                <PublishExchange>amq.topic</PublishExchange>
+                <PublishRoutingKey>taskUpdate_TestServer</PublishRoutingKey>
+                <PublishExchangeType>topic</PublishExchangeType>
+            </Task>
+            <!-- High Frequency update in Hz, This will be off by one or two main calls timings 
+                 The value is capped in range [1,15] -->
+            <UpdateFrequency>15</UpdateFrequency>
+            <!-- If you still want to use old ui stack -->
+            <PublishExchange>amq.topic</PublishExchange>
+            <PublishRoutingKey>ZIPPY10LOWER</PublishRoutingKey>
+            <PublishExchangeType>topic</PublishExchangeType>
+        </Rabbitmq>
+        <!-- Send low frequency update as per old ui stack -->
+        <AgentUpdate>
+            <Enabled>false</Enabled>
+            <!-- Update time in seconds as it is slower. -->
+            <UpdateTime>1.0</UpdateTime>
+            <Rabbitmq>
+                <PublishExchange>FMS.ROBOT.UPDATE</PublishExchange>
+                <PublishQueue>FMS.ROBOT.UPDATE</PublishQueue>
+                <PublishRoutingKey>FMS</PublishRoutingKey>
+            </Rabbitmq>
+        </AgentUpdate>
+        <!-- Callbacks for the REST calls made by UI. -->
+        <REST>
+            <IP>127.0.0.1</IP>
+            <Port>7012</Port>
+            <Secure>false</Secure>
+            <CallbackSecure>false</CallbackSecure>
+            <CallbackPort>true</CallbackPort>
+            <CallbackIP></CallbackIP>
+            <RoutingKey></RoutingKey>
+            <Certificate>assets://cert/localhost.crt</Certificate>
+            <PrivateKey>assets://cert/localhost.key</PrivateKey>
+            <VerifyFile></VerifyFile>
+        </REST>
+        <!-- What options are shown in UI -->
+        <Options>
+            <ParkRobots>true</ParkRobots>
+            <PickStationState>true</PickStationState>
+            <BinStationState>false</BinStationState>
+            <ParkStationState>true</ParkStationState>
+            <ChargeStationState>true</ChargeStationState>
+            <SwitchOffRobotsState>true</SwitchOffRobotsState>
+            <ChargerOffHardStop>false</ChargerOffHardStop>
+            <UseExtendedHandler>false</UseExtendedHandler>
+            <TaskAllocationState>true</TaskAllocationState>
+        </Options>
+    </UIInterface>
+    <!-- Allows to upload the error logs to the server -->
+    <ErrorFileServer>
+        <Enable>true</Enable>
+        <REST>
+            <IP>127.0.0.1</IP>
+            <Port>7018</Port>
+            <Secure>false</Secure>
+            <RoutingKey></RoutingKey>
+            <Certificate>assets://cert/localhost.crt</Certificate>
+            <PrivateKey>assets://cert/localhost.key</PrivateKey>
+            <VerifyFile></VerifyFile>
+        </REST>
+        <!-- Handle the rotation of files for robot supplied logs. -->
+        <File>
+            <Type>Rotating</Type>
+            <!-- Size is in mb-->
+            <Size>100</Size>
+            <SizeLimit>2000</SizeLimit>
+            <Limit>4</Limit>
+            <!-- In hours-->
+            <MaxLifeSpan>10</MaxLifeSpan>
+            <BackupLifeSpan>168</BackupLifeSpan>
+            <BackupTime>8</BackupTime>
+        </File>
+        <Database>
+            <CollectionName>robotErrors</CollectionName>
+            <!-- Agent errors Stay in db for this long (in hrs) Min 7 days-->
+            <TimeTTL>168</TimeTTL>
+        </Database>
+    </ErrorFileServer>
+    <!-- Store the endpoints for all settings in one place -->
+    <EndPoints>
+        <Maintenance></Maintenance>
+        <LevelChange></LevelChange>
+    </EndPoints>
+</root>
