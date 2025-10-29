@@ -326,7 +326,7 @@
             "x" : -1,
             "y" : -1
          },
-         "conveyorType" : "manual",
+         "conveyorType" : "movable",
          "disabledFor" : "",
          "distanceVariation" : -1.0,
          "distributionType" : "Uniform",
@@ -757,7 +757,9 @@
             "x" : -1,
             "y" : -1
          },
+         "conveyorType" : "manual",
          "disabledFor" : "",
+         "enable" : true,
          "name" : "N22",
          "pose" : {
             "orientation" : {
@@ -780,7 +782,7 @@
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "none",
+         "type" : "charge",
          "weight" : -1.0
       },
       {
