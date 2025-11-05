@@ -123,8 +123,17 @@
          "useSleep" : true
       },
       {
+         "from" : "N21",
+         "isUniDirectional" : true,
+         "name" : "N21|N26",
+         "to" : "N26",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
          "from" : "N22",
          "isUniDirectional" : true,
+         "length" : 0.095005267779981126,
          "name" : "N22|N21",
          "to" : "N21",
          "useAwake" : true,
@@ -166,6 +175,14 @@
       {
          "from" : "N26",
          "isUniDirectional" : true,
+         "name" : "N26|N13",
+         "to" : "N13",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N26",
+         "isUniDirectional" : true,
          "name" : "N26|N25",
          "to" : "N25",
          "useAwake" : true,
@@ -184,6 +201,46 @@
          "isUniDirectional" : false,
          "name" : "N27|N16",
          "to" : "N16",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N28",
+         "isUniDirectional" : false,
+         "name" : "N28|N22",
+         "to" : "N22",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N28",
+         "isUniDirectional" : true,
+         "name" : "N28|N29",
+         "to" : "N29",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N29",
+         "isUniDirectional" : true,
+         "name" : "N29|N30",
+         "to" : "N30",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N30",
+         "isUniDirectional" : true,
+         "name" : "N30|N31",
+         "to" : "N31",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N31",
+         "isUniDirectional" : true,
+         "name" : "N31|N23",
+         "to" : "N23",
          "useAwake" : true,
          "useSleep" : true
       },
@@ -326,7 +383,7 @@
             "x" : -1,
             "y" : -1
          },
-         "conveyorType" : "manual",
+         "conveyorType" : "movable",
          "disabledFor" : "",
          "distanceVariation" : -1.0,
          "distributionType" : "Uniform",
@@ -723,7 +780,15 @@
             "x" : -1,
             "y" : -1
          },
+         "conveyorType" : "manual",
          "disabledFor" : "",
+         "distanceVariation" : -1.0,
+         "distributionType" : "Uniform",
+         "dockDirection" : {
+            "yaw" : 1.0
+         },
+         "enable" : true,
+         "meanDistance" : -1.0,
          "name" : "N21",
          "pose" : {
             "orientation" : {
@@ -738,6 +803,10 @@
                "z" : 0.0
             }
          },
+         "queue" : 0,
+         "queueBiasSize" : 0.0,
+         "queueCapacity" : 5,
+         "queueOverflow" : 1.0,
          "replanAllowed" : true,
          "replanTimer" : -1.0,
          "safetyType" : "normalSafety",
@@ -746,8 +815,9 @@
             "Clockwise" : 3.1400000000000001,
             "antiClockwise" : 3.1400000000000001
          },
-         "type" : "none",
-         "weight" : -1.0
+         "type" : "pick",
+         "weight" : -1.0,
+         "zoneNames" : ""
       },
       {
          "agentsAllowed" : "",
@@ -919,6 +989,155 @@
             "antiClockwise" : 3.1400000000000001
          },
          "type" : "park",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "conveyorType" : "manual",
+         "disabledFor" : "",
+         "distanceVariation" : -1.0,
+         "distributionType" : "Uniform",
+         "dockDirection" : {
+            "yaw" : 1.0
+         },
+         "enable" : true,
+         "meanDistance" : -1.0,
+         "name" : "N28",
+         "pose" : {
+            "orientation" : {
+               "w" : 0.70710678118654757,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 0.70710678118654746
+            },
+            "position" : {
+               "x" : 4.9800000190734863,
+               "y" : 0.019999999552965164,
+               "z" : 0.0
+            }
+         },
+         "queue" : 0,
+         "queueBiasSize" : 0.0,
+         "queueCapacity" : 5,
+         "queueOverflow" : 1.0,
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "pick",
+         "weight" : -1.0,
+         "zoneNames" : ""
+      },
+      {
+         "agentsAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N29",
+         "pose" : {
+            "orientation" : {
+               "w" : 1.0,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 0.0
+            },
+            "position" : {
+               "x" : 4.9800000190734863,
+               "y" : 1.0199999809265137,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N30",
+         "pose" : {
+            "orientation" : {
+               "w" : 1.0,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 0.0
+            },
+            "position" : {
+               "x" : 5.0,
+               "y" : 1.9900000095367432,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N31",
+         "pose" : {
+            "orientation" : {
+               "w" : 1.0,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 0.0
+            },
+            "position" : {
+               "x" : 4.9800000190734863,
+               "y" : 3.0299999713897705,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
          "weight" : -1.0
       }
    ],
