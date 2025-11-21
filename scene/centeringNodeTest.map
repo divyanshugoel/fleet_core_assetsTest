@@ -1,4 +1,5 @@
 {
+   "backgrounds" : [],
    "blockers" : null,
    "edges" : [
       {
@@ -36,24 +37,8 @@
       {
          "from" : "N16",
          "isUniDirectional" : false,
-         "name" : "N16|N12",
-         "to" : "N12",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N16",
-         "isUniDirectional" : false,
          "name" : "N16|N15",
          "to" : "N15",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N17",
-         "isUniDirectional" : false,
-         "name" : "N17|N13",
-         "to" : "N13",
          "useAwake" : true,
          "useSleep" : true
       },
@@ -92,24 +77,8 @@
       {
          "from" : "N20",
          "isUniDirectional" : false,
-         "name" : "N20|N16",
-         "to" : "N16",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N20",
-         "isUniDirectional" : false,
          "name" : "N20|N19",
          "to" : "N19",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N21",
-         "isUniDirectional" : false,
-         "name" : "N21|N17",
-         "to" : "N17",
          "useAwake" : true,
          "useSleep" : true
       },
@@ -148,24 +117,8 @@
       {
          "from" : "N24",
          "isUniDirectional" : false,
-         "name" : "N24|N20",
-         "to" : "N20",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N24",
-         "isUniDirectional" : false,
          "name" : "N24|N23",
          "to" : "N23",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N25",
-         "isUniDirectional" : false,
-         "name" : "N25|N21",
-         "to" : "N21",
          "useAwake" : true,
          "useSleep" : true
       },
@@ -212,24 +165,8 @@
       {
          "from" : "N28",
          "isUniDirectional" : false,
-         "name" : "N28|N24",
-         "to" : "N24",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N28",
-         "isUniDirectional" : false,
          "name" : "N28|N27",
          "to" : "N27",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N29",
-         "isUniDirectional" : false,
-         "name" : "N29|N25",
-         "to" : "N25",
          "useAwake" : true,
          "useSleep" : true
       },
@@ -274,14 +211,6 @@
          "useSleep" : true
       },
       {
-         "from" : "N3",
-         "isUniDirectional" : false,
-         "name" : "N3|N1",
-         "to" : "N1",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
          "from" : "N4",
          "isUniDirectional" : false,
          "name" : "N4|N15",
@@ -292,23 +221,7 @@
       {
          "from" : "N4",
          "isUniDirectional" : false,
-         "name" : "N4|N2",
-         "to" : "N2",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N4",
-         "isUniDirectional" : false,
          "name" : "N4|N3",
-         "to" : "N3",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N5",
-         "isUniDirectional" : false,
-         "name" : "N5|N3",
          "to" : "N3",
          "useAwake" : true,
          "useSleep" : true
@@ -324,32 +237,8 @@
       {
          "from" : "N6",
          "isUniDirectional" : false,
-         "name" : "N6|N4",
-         "to" : "N4",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N6",
-         "isUniDirectional" : false,
          "name" : "N6|N5",
          "to" : "N5",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N7",
-         "isUniDirectional" : false,
-         "name" : "N7|N5",
-         "to" : "N5",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N8",
-         "isUniDirectional" : false,
-         "name" : "N8|N10",
-         "to" : "N10",
          "useAwake" : true,
          "useSleep" : true
       },
@@ -358,14 +247,6 @@
          "isUniDirectional" : false,
          "name" : "N8|N23",
          "to" : "N23",
-         "useAwake" : true,
-         "useSleep" : true
-      },
-      {
-         "from" : "N8",
-         "isUniDirectional" : false,
-         "name" : "N8|N6",
-         "to" : "N6",
          "useAwake" : true,
          "useSleep" : true
       },
@@ -384,28 +265,23 @@
          "to" : "N10",
          "useAwake" : true,
          "useSleep" : true
-      },
-      {
-         "from" : "N9",
-         "isUniDirectional" : false,
-         "name" : "N9|N7",
-         "to" : "N7",
-         "useAwake" : true,
-         "useSleep" : true
       }
    ],
+   "handlingUnitMap" : null,
    "junctions" : null,
    "locationManager" : null,
    "nodes" : [
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N11",
+         "centeringNodeSec" : "N11",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -439,13 +315,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N11",
+         "centeringNodeSec" : "N11",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -479,13 +357,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N15",
+         "centeringNodeSec" : "N15",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -519,13 +399,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N15",
+         "centeringNodeSec" : "N15",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -559,13 +441,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N19",
+         "centeringNodeSec" : "N19",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -599,13 +483,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "N23",
+         "centeringNode" : "N19",
+         "centeringNodeSec" : "N19",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -639,13 +525,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N23",
+         "centeringNodeSec" : "N23",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -679,13 +567,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N23",
+         "centeringNodeSec" : "N23",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -719,13 +609,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N27",
+         "centeringNodeSec" : "N27",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -759,13 +651,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "N23",
+         "centeringNode" : "N27",
+         "centeringNodeSec" : "N27",
          "disabledFor" : "",
          "enable" : true,
          "name" : "N10",
@@ -795,6 +689,7 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -829,13 +724,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N11",
+         "centeringNodeSec" : "N14",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -869,12 +766,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
+         "centeringNode" : "N14",
+         "centeringNodeSec" : "N11",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -908,6 +808,7 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -942,6 +843,7 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -976,13 +878,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N15",
+         "centeringNodeSec" : "N18",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -1016,13 +920,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N18",
+         "centeringNodeSec" : "N15",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -1056,6 +962,7 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -1090,6 +997,7 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -1124,13 +1032,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N19",
+         "centeringNodeSec" : "N22",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -1164,13 +1074,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N22",
+         "centeringNodeSec" : "N19",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -1204,6 +1116,7 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -1238,6 +1151,7 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -1272,13 +1186,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N23",
+         "centeringNodeSec" : "N26",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -1312,13 +1228,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N26",
+         "centeringNodeSec" : "N23",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -1352,6 +1270,7 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -1386,6 +1305,7 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
@@ -1420,13 +1340,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N27",
+         "centeringNodeSec" : "N30",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -1460,13 +1382,15 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
             "x" : -1,
             "y" : -1
          },
-         "centeringNode" : "\u0000",
+         "centeringNode" : "N30",
+         "centeringNodeSec" : "N27",
          "conveyorType" : "manual",
          "disabledFor" : "",
          "dockDirection" : {
@@ -1500,6 +1424,7 @@
       },
       {
          "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
          "barcodeValue" : {
             "id" : -1,
             "str" : "",
