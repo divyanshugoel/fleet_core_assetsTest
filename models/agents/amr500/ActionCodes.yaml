@@ -227,7 +227,10 @@ Params:
     stopOnCollision: true
     antipodalMovement: false
     motionModelCoefficient: 0.5
+    # For 4WPS. There are no rotation but axis change. This denotes the time taken by mechanism to switch the axis.
     turnDelayNoRotation: 10
+    # Lift the scissor lift x mtrs. away from the pick position.
+    lifterPreRaiseDistance: 1
     numOptVars: 13
     dt: 0.1
     positionWeight: 1.0
