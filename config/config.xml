@@ -527,7 +527,7 @@
             <Database>
                 <CollectionName>scenarioData</CollectionName>
             </Database>
-            <!-- Used for level changes and maintenance requests -->
+            <!-- Used for level changes and homing requests -->
             <Redirection>
                 <Enabled>true</Enabled>
                 <!-- Time after which request is removed after being completed, also serves as
@@ -536,9 +536,9 @@
                 <!-- Time after which the request is checked -->
                 <RecheckTimeout>10</RecheckTimeout>
                 <!-- Time after which the robot is considered stationary if stuck in movement. -->
-                <MaintenanceStationaryTimeout>30</MaintenanceStationaryTimeout>
-                <!-- Notification end point on wcs end to notify for maintenance -->
-                <MaintenanceNotifyEndpoint>wcs/maintenance/update</MaintenanceNotifyEndpoint>
+                <HomingStationaryTimeout>30</HomingStationaryTimeout>
+                <!-- Notification end point on wcs end to notify for homing -->
+                <HomingNotifyEndpoint>wcs/homing/update</HomingNotifyEndpoint>
                 <LevelChangeNotifyEndpoint>wcs/levelChange/update</LevelChangeNotifyEndpoint>
                 <!-- Store the requests in the database -->
                 <Database>
@@ -866,7 +866,7 @@
         </Rabbitmq>
         <!-- Send low frequency update as per old ui stack -->
         <AgentUpdate>
-            <Enabled>false</Enabled>
+            <Enabled>true</Enabled>
             <!-- Update time in seconds as it is slower. -->
             <UpdateTime>1.0</UpdateTime>
             <Rabbitmq>
@@ -933,7 +933,7 @@
     </ErrorFileServer>
     <!-- Store the endpoints for all settings in one place -->
     <EndPoints>
-        <Maintenance></Maintenance>
+        <Homing></Homing>
         <LevelChange></LevelChange>
     </EndPoints>
 </root>
