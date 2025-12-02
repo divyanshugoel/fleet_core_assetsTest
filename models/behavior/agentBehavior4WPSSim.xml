@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root main_tree_to_execute="AgentBehavior" BTCPP_format="4">
+    <!-- ////////// -->
+    <BehaviorTree ID="AgentBehavior">
+        <SequenceWithMemory name="MainSequence">
+            <Fallback name="MaintenanceFallback">
+                <Inverter>
+                    <Action ID="CHECK_FOR_MAINTENANCE_RESUME" />
+                </Inverter>
+                <SequenceWithMemory name="MaintenanceSequence">
+                    <Fallback>
+                        <Action ID="MOVE_TO_CENTER" />
+                        <!-- Check if the agent is unable to move. This block always returns 
+                                    failure except when robot is not moving. So only move to center 
+                                    can get out of the sequence -->
+                        <!-- If the agent is already unable to move then stop path extension -->
+                        <Action ID="AGENT_UNABLE_TO_MOVE" />
+                    </Fallback>
+                    <Action ID="MARK_CENTERING_DONE" />
+                    <!-- If the system is maintenance then halt the robot -->
+                    <Action ID="HALT_FOR_MAINTENANCE" />
+                </SequenceWithMemory>
+            </Fallback>
+            <!-- Second check is for task. -->
+            <Fallback name="CheckNewTask">
+                <Action ID="CHECK_TASK_RESUME" />
+                <Action ID="ASSIGN_IN_PROGRESS_TASK_BIN" />
+            </Fallback>
+            <Fallback name="ChargeFallback">
+                <Action ID="CHECK_CHARGE_RESUME" />
+                <SequenceWithMemory name="ChargeSequence">
+                    <Action ID="CHARGE" />
+                    <Action ID="UNDOCK_IN_PLACE" />
+                </SequenceWithMemory>
+            </Fallback>
+            <Fallback name="PayloadFallback">
+                <SequenceWithMemory name="PayloadSequence">
+                    <Fallback name="LoadChargeFallback">
+                        <Action ID="CHECK_BATTERY_STATUS" />
+                        <SequenceWithMemory name="ChargerSequence">
+                            <Sequence>
+                                <Fallback name="ChargeAllocationFallback">
+                                    <Action ID="CHECK_CHARGE_LOCATION_ASSIGNED" />
+                                    <Action ID="ASSIGN_CHARGE_LOCATION" />
+                                </Fallback>
+                            </Sequence>
+                            <Action ID="MOVE" />
+                            <Action ID="DOCK_IN_PLACE" />
+                            <Action ID="CHARGE" />
+                            <Action ID="UNDOCK_IN_PLACE" />
+                        </SequenceWithMemory>
+                    </Fallback>
+                    <SequenceWithMemory name="TaskSeq">
+                        <!-- Action ID="MOVE_PICK_MOVABLE" /-->
+                        <Sequence>
+                            <SubTree ID="MaintenanceSubTree" />
+                            <!-- Second check is for task. -->
+                            <Fallback name="CheckNewTask">
+                                <Action ID="CHECK_TASK_ASSIGNED" />
+                                <Action ID="ASSIGN_NEW_TASK" />
+                                <Action ID="ALLOW_CHARGE_ESCAPE" />
+                            </Fallback>
+                        </Sequence>
+                        <Action ID="MOVE_PICK_MOVABLE" />
+                        <Action ID="LOAD_FWPS" />
+                        <Fallback name="HospitalFallback">
+                            <Action ID="CHECK_HOSPITAL_TASK" />
+                            <SequenceWithMemory name="HospitalSequence">
+                                <Action ID="FORCE_PATH_END" />
+                                <Action ID="ASSIGN_HOSPITAL_SPOT" />
+                            </SequenceWithMemory>
+                        </Fallback>
+                        <Action ID="MOVE_PICK_MOVABLE" />
+                        <Action ID="UNLOAD_FWPS" />
+                    </SequenceWithMemory>
+                    <!-- If the robot can go for level change, this also ensures that
+                         if there is a level change request that is completed first 
+                         Or if there is a maintenance request then level change request is 
+                         abandoned.  -->
+                    <SequenceWithMemory name="LevelChangeSequence">
+                        <Fallback>
+                            <!-- If lane change is triggered -->
+                            <Inverter>
+                                <Action ID="CHECK_LEVEL_CHANGE" />
+                            </Inverter>
+                            <!-- Check if there is level change, is so then move to buffer
+                            while moving to buffer there is a maintenance request then abandon
+                            the level change request. -->
+                            <SequenceWithMemory name="LevelChangeCheck">
+                                <Action ID="ASSIGN_LEVEL_CHANGE" />
+                            </SequenceWithMemory>
+                        </Fallback>
+                        <!-- <SequenceWithMemory> -->
+                        <Action ID="MOVE_FOR_LEVEL_CHANGE" />
+                        <Action ID="AGENT_REACHED_BUFFER" />
+                        <Action ID="HALT_AT_BUFFER" />
+                        <!-- </SequenceWithMemory> -->
+                    </SequenceWithMemory>
+
+                    <SequenceWithMemory name="CenteringSeq">
+                        <Action ID="ASSIGN_CENTER" />
+                        <SequenceWithMemory>
+                            <!-- After assigning the task for the center, first allow the agent to
+                                move while in motion if the maintenance is requested -->
+                            <Fallback>
+                                <Action ID="MOVE_TO_CENTER" />
+                                <!-- Check if the agent is unable to move. This block always returns 
+                                    failure except when robot is not moving. So only move to center 
+                                    can get out of the sequence -->
+                                <!-- If the agent is already unable to move then stop path extension -->
+                                <Action ID="AGENT_UNABLE_TO_MOVE" />
+                            </Fallback>
+                        </SequenceWithMemory>
+                        <Action ID="MARK_CENTERING_DONE" />
+                    </SequenceWithMemory>
+                    <!-- If the system is maintenance then halt the robot -->
+                    <Fallback name="MaintenanceFallback">
+                        <Inverter>
+                            <Action ID="CHECK_FOR_MAINTENANCE" />
+                        </Inverter>
+                        <SequenceWithMemory name="MaintenanceHalt">
+                            <Action ID="HALT_FOR_MAINTENANCE" />
+                        </SequenceWithMemory>
+                    </Fallback>
+                </SequenceWithMemory>
+            </Fallback>
+        </SequenceWithMemory>
+    </BehaviorTree>
+
+    <!-- Create subtree for maintenance check -->
+    <BehaviorTree ID="MaintenanceSubTree">
+        <!-- At this point check if the maintenance is triggered -->
+        <Fallback name="MaintenanceCheck">
+            <!-- If a task is assigned then skip this. -->
+            <Action ID="CHECK_TASK_ASSIGNED" />
+            <!-- If maintenance is triggered -->
+            <Inverter>
+                <Action ID="CHECK_FOR_MAINTENANCE" />
+            </Inverter>
+            <!-- If maintenance is triggered then agent needs to go the centering node and wait
+            there. -->
+            <Action ID="ASSIGN_CENTER_MAINTENANCE" />
+            <SequenceWithMemory>
+                <!-- After assigning the task for the center, first allow the agent to  move while in
+                motion if the maintenance is requested -->
+                <Fallback>
+                    <Action ID="MOVE_TO_CENTER" />
+                    <!-- Check if the agent is unable to move. This block always returns failure
+                    except when robot is not moving. So only move to center can get out of the
+                    sequence -->
+                    <!-- If the agent is already unable to move then stop path extension -->
+                    <Action ID="AGENT_UNABLE_TO_MOVE" />
+                </Fallback>
+                <Action ID="MARK_CENTERING_DONE" />
+                <Action ID="HALT_FOR_MAINTENANCE" />
+            </SequenceWithMemory>
+        </Fallback>
+    </BehaviorTree>
+    <!-- ////////// -->
+    <TreeNodesModel>
+        <Action ID="AGENT_REACHED_BUFFER" />
+        <Action ID="AGENT_UNABLE_TO_MOVE" />
+        <Action ID="ALLOW_CHARGE_ESCAPE" />
+        <Action ID="AMR_CHARGE" />
+        <Action ID="AMR_LOAD" />
+        <Action ID="AMR_MOVE" />
+        <Action ID="AMR_UNDOCK" />
+        <Action ID="AMR_UNLOAD" />
+        <Action ID="ASSIGN_AMR_PICK_SPOT" />
+        <Action ID="ASSIGN_BETTER_PICK_SPOT" />
+        <Action ID="ASSIGN_BETTER_TASK" />
+        <Action ID="ASSIGN_BIN_SPOT" />
+        <Action ID="ASSIGN_CENTER" />
+        <Action ID="ASSIGN_CENTER_MAINTENANCE" />
+        <Action ID="ASSIGN_CHARGE_LOCATION" />
+        <Action ID="ASSIGN_HOSPITAL_SPOT" />
+        <Action ID="ASSIGN_IN_PROGRESS_TASK" />
+        <Action ID="ASSIGN_IN_PROGRESS_TASK_BIN" />
+        <Action ID="ASSIGN_LEVEL_CHANGE" />
+        <Action ID="ASSIGN_NEW_PICK_SPOT" />
+        <Action ID="ASSIGN_NEW_TASK" />
+        <Action ID="ASSIGN_PARK_SPOT" />
+        <Action ID="ASSIGN_PICK_IN_MOVE" />
+        <Action ID="ASSIGN_PICK_SPOT" />
+        <Action ID="ASSIGN_TRANSIENT_PARK" />
+        <Action ID="ASSIGN_WAIT_SPOT" />
+        <Action ID="ASSIGN_WORKSTATION" />
+        <Action ID="BACK_DOCK_CHARGE" />
+        <Action ID="BACK_UNDOCK_CHARGE" />
+        <Action ID="BRING_LIFT_DOWN" />
+        <Action ID="CHARGE" />
+        <Action ID="CHECK_BATTERY_STATUS" />
+        <Action ID="CHECK_BIN_ASSIGNED" />
+        <Action ID="CHECK_CHARGE_LOCATION_ASSIGNED" />
+        <Action ID="CHECK_CHARGE_RESUME" />
+        <Action ID="CHECK_FIRST_PARK_QUERY" />
+        <Action ID="CHECK_FOR_MAINTENANCE" />
+        <Action ID="CHECK_FOR_MAINTENANCE_RESUME" />
+        <Action ID="CHECK_FOR_UNLOADING_FAILURE" />
+        <Action ID="CHECK_GOING_TO_PARK" />
+        <Action ID="CHECK_HOSPITAL_TASK" />
+        <Action ID="CHECK_LEVEL_CHANGE" />
+        <Action ID="CHECK_LEVEL_CHANGE_RESUME" />
+        <Action ID="CHECK_LOADING_TIMEOUT" />
+        <Action ID="CHECK_LOAD_RESUME" />
+        <Action ID="CHECK_PARK_ASSIGNED" />
+        <Action ID="CHECK_PARK_LOCATION_ASSIGNED" />
+        <Action ID="CHECK_PAYLOAD_STATUS" />
+        <Action ID="CHECK_PICK_ASSIGNED" />
+        <Action ID="CHECK_PREV_PARK" />
+        <Action ID="CHECK_RESUME_LOADING_DONE" />
+        <Action ID="CHECK_TASK_ASSIGNED" />
+        <Action ID="CHECK_TASK_RESUME" />
+        <Action ID="CHECK_TIPPING_STATION" />
+        <Action ID="CHECK_TRANSIENT_PARK_ASSIGNABLE" />
+        <Action ID="CHECK_TRANSIENT_PARK_ESCAPE" />
+        <Action ID="CHECK_WAIT_SPOT_ASSIGNED" />
+        <Action ID="CHECK_WORKSTATION_ASSIGNED" />
+        <Action ID="DOCK" />
+        <Action ID="DOCK_IN_PLACE" />
+        <Action ID="DOCK_ZIPPYX" />
+        <Action ID="FORCE_PATH_END" />
+        <Action ID="HALT_AT_BUFFER" />
+        <Action ID="HALT_FOR_MAINTENANCE" />
+        <Action ID="INITIAL_WORKSTATION_ASSIGNED" />
+        <Action ID="LOAD" />
+        <Action ID="LOAD_DIRECT" />
+        <Action ID="LOAD_FWPS" />
+        <Action ID="LOAD_FWPS_DOCK" />
+        <Action ID="LOAD_MANUALLY" />
+        <Action ID="LOAD_SMART" />
+        <Action ID="MARK_CENTERING_DONE" />
+        <Action ID="MOVE" />
+        <Action ID="MOVE_ALTERNATE" />
+        <Action ID="MOVE_FOR_LEVEL_CHANGE" />
+        <Action ID="MOVE_NEAR_TARGET" />
+        <Action ID="MOVE_PICK_MOVABLE" />
+        <Action ID="MOVE_TO_CENTER" />
+        <Action ID="MOVE_TRANSIENT" />
+        <Action ID="MOVE_ZIPPYX" />
+        <Action ID="UNDOCK" />
+        <Action ID="UNDOCK_IN_PLACE" />
+        <Action ID="UNDOCK_ZIPPYX" />
+        <Action ID="UNLOAD" />
+        <Action ID="UNLOAD_FWPS" />
+        <Action ID="UNLOAD_FWPS_DOCK" />
+        <Action ID="UNLOAD_MANUALLY" />
+        <Action ID="UNLOAD_SMART" />
+        <Action ID="VERIFY_AND_UNLOAD" />
+        <Action ID="WORK" />
+        <Action ID="ZIPPYX_LOAD" />
+        <Action ID="ZIPPYX_LOAD_LIFT" />
+        <Action ID="ZIPPYX_LOAD_RESUME" />
+        <Action ID="ZIPPYX_UNLOAD" />
+        <Action ID="ZIPPYX_UNLOAD_LIFT" />
+        <Action ID="ZIPPYX_UNLOAD_RESUME" />
+    </TreeNodesModel>
+    <!-- ////////// -->
+</root>
