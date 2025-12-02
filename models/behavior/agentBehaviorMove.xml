@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root main_tree_to_execute="AgentBehavior" BTCPP_format="4">
+    <!-- ////////// -->
+    <BehaviorTree ID="AgentBehavior">
+        <SequenceWithMemory name="MainSequence">
+            <Fallback name="TaskFallback">
+                <Action ID="CHECK_TASK_RESUME" />
+                <Action ID="ASSIGN_IN_PROGRESS_TASK" />
+            </Fallback>
+            <Fallback name="ChargeFallback">
+                <Action ID="CHECK_CHARGE_RESUME" />
+                <SequenceWithMemory name="ChargeSequence">
+                    <Action ID="CHARGE" />
+                    <Action ID="UNDOCK" />
+                </SequenceWithMemory>
+            </Fallback>
+            <Fallback name="PayloadFallback">
+                <Action ID="CHECK_PAYLOAD_STATUS" />
+                <SequenceWithMemory name="PayloadSequence">
+                    <Fallback name="LoadChargeFallback">
+                        <Action ID="CHECK_BATTERY_STATUS" />
+                        <SequenceWithMemory name="ChargerSequence">
+                            <Sequence>
+                                <Fallback name="ChargeAllocationFallback">
+                                    <Action ID="CHECK_CHARGE_LOCATION_ASSIGNED" />
+                                    <Fallback name="ChargerAssignFallback">
+                                        <Action ID="ASSIGN_CHARGE_LOCATION" />
+                                        <SequenceWithMemory name="ParkspotAssignSequence">
+                                            <Inverter name="">
+                                                <Action ID="CHECK_PARK_LOCATION_ASSIGNED" name="" />
+                                            </Inverter>
+                                            <Action ID="ASSIGN_PARK_SPOT" />
+                                            <Action ID="MOVE" />
+                                        </SequenceWithMemory>
+                                    </Fallback>
+                                </Fallback>
+                                <Inverter>
+                                    <Action ID="CHECK_PARK_LOCATION_ASSIGNED" name="" />
+                                </Inverter>
+                            </Sequence>
+                            <Action ID="MOVE" />
+                            <Action ID="DOCK" />
+                            <Action ID="CHARGE" />
+                            <Action ID="UNDOCK" />
+                        </SequenceWithMemory>
+                    </Fallback>
+                    <SequenceWithMemory name="PickSequence">
+                        <Fallback name="PickAssignFallback">
+                            <Action ID="CHECK_PICK_ASSIGNED" />
+                            <Action ID="ASSIGN_PICK_SPOT" name="LoadingTimeoutSequence" />
+                            <Fallback name="ParkFallback">
+                                <Action ID="CHECK_PARK_ASSIGNED" />
+                                <Action ID="ASSIGN_PARK_SPOT" />
+                            </Fallback>
+                        </Fallback>
+                        <Action ID="MOVE" />
+                        <Fallback name="LoadingFallback">
+                            <Action ID="CHECK_PREV_PARK" />
+                            <Action ID="LOAD_SMART" />
+                            <SequenceWithMemory name="LoadingSequence_">
+                                <Action ID="CHECK_LOADING_TIMEOUT" />
+                                <Fallback name="PickReassignFallback">
+                                    <Action ID="CHECK_PICK_ASSIGNED" />
+                                    <Action ID="ASSIGN_NEW_PICK_SPOT" />
+                                    <Fallback name="ParkReAssignSequence">
+                                        <Action ID="CHECK_PARK_ASSIGNED" />
+                                        <Action ID="ASSIGN_PARK_SPOT" />
+                                    </Fallback>
+                                </Fallback>
+                            </SequenceWithMemory>
+                        </Fallback>
+                    </SequenceWithMemory>
+                </SequenceWithMemory>
+            </Fallback>
+            <Fallback name="HospitalFallback">
+                <Action ID="CHECK_HOSPITAL_TASK" />
+                <SequenceWithMemory name="HospitalSequence">
+                    <Action ID="FORCE_PATH_END" />
+                    <Action ID="ASSIGN_HOSPITAL_SPOT" />
+                </SequenceWithMemory>
+            </Fallback>
+            <Action ID="MOVE" />
+            <Action ID="UNLOAD" />
+        </SequenceWithMemory>
+    </BehaviorTree>
+    <!-- ////////// -->
+    <TreeNodesModel>
+        <Action ID="AGENT_REACHED_BUFFER" />
+        <Action ID="AGENT_UNABLE_TO_MOVE" />
+        <Action ID="ALLOW_CHARGE_ESCAPE" />
+        <Action ID="AMR_CHARGE" />
+        <Action ID="AMR_LOAD" />
+        <Action ID="AMR_MOVE" />
+        <Action ID="AMR_UNDOCK" />
+        <Action ID="AMR_UNLOAD" />
+        <Action ID="ASSIGN_AMR_PICK_SPOT" />
+        <Action ID="ASSIGN_BETTER_PICK_SPOT" />
+        <Action ID="ASSIGN_BETTER_TASK" />
+        <Action ID="ASSIGN_BIN_SPOT" />
+        <Action ID="ASSIGN_CENTER" />
+        <Action ID="ASSIGN_CENTER_MAINTENANCE" />
+        <Action ID="ASSIGN_CHARGE_LOCATION" />
+        <Action ID="ASSIGN_HOSPITAL_SPOT" />
+        <Action ID="ASSIGN_IN_PROGRESS_TASK" />
+        <Action ID="ASSIGN_IN_PROGRESS_TASK_BIN" />
+        <Action ID="ASSIGN_LEVEL_CHANGE" />
+        <Action ID="ASSIGN_NEW_PICK_SPOT" />
+        <Action ID="ASSIGN_NEW_TASK" />
+        <Action ID="ASSIGN_PARK_SPOT" />
+        <Action ID="ASSIGN_PICK_IN_MOVE" />
+        <Action ID="ASSIGN_PICK_SPOT" />
+        <Action ID="ASSIGN_TRANSIENT_PARK" />
+        <Action ID="ASSIGN_WAIT_SPOT" />
+        <Action ID="ASSIGN_WORKSTATION" />
+        <Action ID="BACK_DOCK_CHARGE" />
+        <Action ID="BACK_UNDOCK_CHARGE" />
+        <Action ID="BRING_LIFT_DOWN" />
+        <Action ID="CHARGE" />
+        <Action ID="CHECK_BATTERY_STATUS" />
+        <Action ID="CHECK_BIN_ASSIGNED" />
+        <Action ID="CHECK_CHARGE_LOCATION_ASSIGNED" />
+        <Action ID="CHECK_CHARGE_RESUME" />
+        <Action ID="CHECK_FIRST_PARK_QUERY" />
+        <Action ID="CHECK_FOR_MAINTENANCE" />
+        <Action ID="CHECK_FOR_MAINTENANCE_RESUME" />
+        <Action ID="CHECK_FOR_UNLOADING_FAILURE" />
+        <Action ID="CHECK_GOING_TO_PARK" />
+        <Action ID="CHECK_HOSPITAL_TASK" />
+        <Action ID="CHECK_LEVEL_CHANGE" />
+        <Action ID="CHECK_LEVEL_CHANGE_RESUME" />
+        <Action ID="CHECK_LOADING_TIMEOUT" />
+        <Action ID="CHECK_LOAD_RESUME" />
+        <Action ID="CHECK_PARK_ASSIGNED" />
+        <Action ID="CHECK_PARK_LOCATION_ASSIGNED" />
+        <Action ID="CHECK_PAYLOAD_STATUS" />
+        <Action ID="CHECK_PICK_ASSIGNED" />
+        <Action ID="CHECK_PREV_PARK" />
+        <Action ID="CHECK_RESUME_LOADING_DONE" />
+        <Action ID="CHECK_TASK_ASSIGNED" />
+        <Action ID="CHECK_TASK_RESUME" />
+        <Action ID="CHECK_TIPPING_STATION" />
+        <Action ID="CHECK_TRANSIENT_PARK_ASSIGNABLE" />
+        <Action ID="CHECK_TRANSIENT_PARK_ESCAPE" />
+        <Action ID="CHECK_WAIT_SPOT_ASSIGNED" />
+        <Action ID="CHECK_WORKSTATION_ASSIGNED" />
+        <Action ID="DOCK" />
+        <Action ID="DOCK_IN_PLACE" />
+        <Action ID="DOCK_ZIPPYX" />
+        <Action ID="FORCE_PATH_END" />
+        <Action ID="HALT_AT_BUFFER" />
+        <Action ID="HALT_FOR_MAINTENANCE" />
+        <Action ID="INITIAL_WORKSTATION_ASSIGNED" />
+        <Action ID="LOAD" />
+        <Action ID="LOAD_DIRECT" />
+        <Action ID="LOAD_FWPS" />
+        <Action ID="LOAD_FWPS_DOCK" />
+        <Action ID="LOAD_MANUALLY" />
+        <Action ID="LOAD_SMART" />
+        <Action ID="MARK_CENTERING_DONE" />
+        <Action ID="MOVE" />
+        <Action ID="MOVE_ALTERNATE" />
+        <Action ID="MOVE_FOR_LEVEL_CHANGE" />
+        <Action ID="MOVE_NEAR_TARGET" />
+        <Action ID="MOVE_PICK_MOVABLE" />
+        <Action ID="MOVE_TO_CENTER" />
+        <Action ID="MOVE_TRANSIENT" />
+        <Action ID="MOVE_ZIPPYX" />
+        <Action ID="UNDOCK" />
+        <Action ID="UNDOCK_IN_PLACE" />
+        <Action ID="UNDOCK_ZIPPYX" />
+        <Action ID="UNLOAD" />
+        <Action ID="UNLOAD_FWPS" />
+        <Action ID="UNLOAD_FWPS_DOCK" />
+        <Action ID="UNLOAD_MANUALLY" />
+        <Action ID="UNLOAD_SMART" />
+        <Action ID="VERIFY_AND_UNLOAD" />
+        <Action ID="WORK" />
+        <Action ID="ZIPPYX_LOAD" />
+        <Action ID="ZIPPYX_LOAD_LIFT" />
+        <Action ID="ZIPPYX_LOAD_RESUME" />
+        <Action ID="ZIPPYX_UNLOAD" />
+        <Action ID="ZIPPYX_UNLOAD_LIFT" />
+        <Action ID="ZIPPYX_UNLOAD_RESUME" />
+    </TreeNodesModel>
+    <!-- ////////// -->
+</root>
