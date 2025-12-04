@@ -1,0 +1,226 @@
+---
+# Agent Model to be loaded
+# Current ICD of Loading and Unloading (Subjected to Change in Robot Code)
+
+#perform action: this field denotes the type of action to be performed by the agv
+# 2: go to charging station; used for docking, results in sending the agv from predock of the charger to actual charging position; *****NOTE: while sending this perform action please make sure that the charger id field is also set correctly. ie, a valid charging position is set in agv with help of api or some other method otherwise you might experience undefined behaviors like communication failure*****
+# 3: initiate charge; used when robot has reached the charging station and results in activating the charging circuit feedback which activates the auto charger.
+# 4: finish charge; to make the agv detach from charger and come back to the predock position of the charger. start performing normal operation
+# 0: normal; in this state robot accepts a move goal;
+# 14: loading operation for conveyor;mainly monitors how sensor feedbacks are handled based on parcel movement direction;
+# 15: unloading action for conveyor; mainly monitors how sensor feedbacks are handled based on parcel movement direction;
+# 31:  clear robot errors without controller reset : used for any error except charging
+# 41: tell robot to make parcel state as parcel present
+# 40: tell robot to make parcel state as parcel absent
+# 51: clear robot errors with controller reset : used only for charging error
+
+#action_completed : used for communicating charging cycle
+# -1: default value
+# 10: when FMS sends perform action 2, agv goes to charge, when agv has reached to its charging position it responds back with 10 in action_completed field, indicating that agv is now attached to charger.
+# 7: when agv responds back with 10 in action_completed field then FMS tells the agv to activate charger with perform action 3 and agv responds with 7 in action completed field indicating that the charger is sucessfully activated.
+# 8: when FMS sends perform action 4, agv detaches from the charger and goes to charging predock position and responds back with 8 in action_completed field indicating that it has now sucessfully detached from charger and is ready to accept any move goal;
+# 32: in reply of perform action 31
+# 42: in reply of perform action 40 or 41
+# 52: in reply of perform action 51
+
+ActionCommand:
+  CHARGE:
+    CHARGE_DOCK: 2
+    START_CHARGING: 3
+    CHARGE_UNDOCK: 4
+    RESET_CHARGE_ERROR: 51
+    STOP_CHARGING: -1
+  DOCK:
+    MOVE_FORWARD: 2
+    MOVE_BACKWARD: 3
+  MOVE: 0
+  ESTOP: 0
+  ATTACHMENT:
+    START_LOADING: 14
+    START_LOADING_MANUALLY: 41
+    START_UNLOADING: 15
+    START_UNLOADING_MANUALLY: 40
+    LOADING_DIRECTION: 1
+    LOADING_DIRECTION_REVERSE: 1
+    RESET_CONVEYOR: 31
+    HARD_RESET_ERROR: 51
+    START_SPECIAL_LOADING: 16
+    START_LIFT: 30
+    START_LOADING_DOCK: 71
+    START_UNLOADING_DOCK: 72
+  # Currently these settings are specified here but eventually they should come from the
+  # the attachment folder.
+ResponseCommand:
+  NO_ACTION_COMPLETED: 0
+  MOVE_COMPLETED: 0
+  DOCK:
+    REACHED_DOCK: 10
+    REACHED_PREDOCK: 8
+    UNLOADING_STOPPED: 17 # not used as per current ICD
+    LOADING_STOPPED: 16 # not used as per current ICD
+    LIFT_STOPPED: 31
+    LOADING_DOCK_DONE: 76
+    UNLOADING_DOCK_DONE: 77
+    LOADING_DOCK_FAILED: 78
+    UNLOADING_DOCK_FAILED: 79
+  CHARGE:
+    CHARGING_STOPPED: 18
+  ERROR:
+    RESET_FEEDBACK: 32
+    HARD_RESET_FEEDBACK: 52
+    LOADING_ERROR: 401
+    UNLOADING_ERROR: 402
+    DOCKING_ERROR: 501
+    CHARGING_ERROR: 501
+
+Params:
+  name: "forklift"
+  # Don't change the next three lines.
+  # This needs to match with one of the categories we support.
+  # Type is [ZIPPY, 4WPS, AMR, VELOCE, FORKLIFT]
+  # Variant [V6,V10,V25,V30,V40,V_X,V_TUG:V_L1:AMR_100,AMR_200,AMR_500,AMR_1000,AMR_2500:V_L7:V_LD1]
+  type: "Forklift"
+  variant: "V_LD1"
+  attachment: "LifterDepth"
+  tug: false
+  rotateFirst: true
+  noRotation: false
+  validateParcelAtPick: true
+  validateParcelAtDrop: true
+  dimensions:
+    lengthFront: 0.2
+    lengthRear: 0.2
+    widthLeft: 0.2
+    widthRight: 0.2
+    heightTop: 0.35
+    heightBottom: 0.35
+  # Available option UNIDIRECTIONAL, BIDIRECTIONAL and OMNIDIRECTIONAL
+  motionType: "UNIDIRECTIONAL"
+  # Available option SINGLE, TRAPEZOIDAL, SIMPLE
+  #   SINGLE : Zippy like path follower only moves in straight line
+  #   TRAPEZOIDAL : Trapezoidal path follower.
+  #   SIMPLE : Curve based path follower
+  #   LINEAR_MPC: MPC for generating linear velocities for straight lines
+  pathFollower: "single"
+  # Available option DIFFERENTIAL, SIMPLE
+  #   DIFFERENTIAL : System has a plant model
+  #   SIMPLE : Velocity_in = Velocity_Out.
+  motionModel: "DIFFERENTIAL"
+  # Available parsers
+  #  V0 - Zippy
+  #  V1 - Zippy Tug
+  #  V2 - AMR
+  parser: "StringV1.2"
+  obstacleSensor:
+    num: 1
+    sensor_0:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      yaw: 0.0 # in radians.
+      minFOV: "-pi/8" # considering robot heading left
+      maxFOV: "pi/8" # to right
+      minObsFOV: "-pi/8" # Left FOV boundary within which obstacle detection is active
+      maxObsFOV: "+pi/8" # Right FOV boundary within which obstacle detection is active
+      range: 1
+      rangePlanning: 1
+      rangeWarning: 0.8
+      rangeCritical: 0.5
+  behaviors:
+    # Priority is given to behaviors under robot folder.
+    # The default path is:
+    # The File name should match:
+    #   - under this folder.
+    #   - under behavior folder.
+    behaviorDefault:
+      path: "agentBehavior"
+    default: "behaviorDefault"
+  # All values are in seconds, meters, m/sec^2
+  timer:
+    loadingTime: 0.0
+    unloadingTime: 0.0
+    resetDepthPosition: 1400000
+    depthTolerance: 1400000
+    depthOffset: 1400000
+    replanningTime: 10.0
+    queueReplanningTime: 30.0
+    dockingTime: 30.0
+    undockingTime: 30.0
+    chargeIdleTime: 30.0
+    pickRequestTime: 50.0
+    robotActiveTime: 5.0
+    robotAtPositionRepeatTime: 1.0
+    maxLoadingTries: 7
+    maxUnloadingTries: 7
+    maxDockingTries: 7
+    maxUndockingTries: 7
+    maxChargingTries: 7
+    # Maximum distance the agent can jump in one communication delta
+    poseJumpThreshold: 5.0
+    # If the robot is to get out of the charger on stopping fleet.
+    # For fire mode.
+    exitFromChargerOnPause: false
+    noChargeSleepMode: false
+    # Resetting the behavior tree allows to resume the state better on robot shutdown.
+    resetBehaviorOnShutdown: true
+    # Resetting the behavior tree allows to resume the state better on manual mode change.
+    resetBehaviorOnModeChange: false
+
+  motion:
+    # All Values are in seconds, radians, meters, m/sec^2.
+    # These values are for the simulation side.
+    loadingTime: 2.0
+    unloadingTime: 2.0
+    resetLiftPosition: 10000
+    liftTolerance: 200
+    liftLoadOffset: 1400000
+    maxLinearVelocity: 1.4
+    maxLinearVelocityCurve: 0.8
+    maxLateralVelocity: 0
+    maxAngularVelocity: 1.57
+    linearAcceleration: 0.8
+    linearDeceleration: 0.8
+    jerkMax: 10.0
+    lateralAcceleration: 0.15
+    lateralDeceleration: 0.15
+    positionTolerance: 0.07
+    angularTolerance: 0.025
+    cruiseDistance: 0.0
+    cruiseVelocity: 0.0
+    creepDistance: 0.02
+    creepVelocity: 0.02
+    exitVelocity: 0.4
+    splinePointCount: 30
+    appendRobotPose: true
+    enableVelocityProfile: true
+    goalCheck: true
+    stopOnCollision: true
+    antipodalMovement: false
+    motionModelCoefficient: 0.5
+    # For 4WPS. There are no rotation but axis change. This denotes the time taken by mechanism to switch the axis.
+    turnDelayNoRotation: 10
+    # Lift the scissor lift x mtrs. away from the pick position.
+    lifterPreRaiseDistance: 1
+    numOptVars: 13
+    dt: 0.1
+    positionWeight: 1.0
+    velocityWeight: 0.0
+    weightScale: 0.06
+    velocityWeightThreshold: 0.2
+    jerkScale: 1.0
+    accelerationScale: 1.0
+    finalPositionOffset: 0.02
+    finalVelocityThreshold: 0.05
+    osqpIterations: 500
+    osqpEpsAbsThreshold: 0.01
+    osqpEpsRelThreshold: 0.01
+
+  battery:
+    # All Values are in seconds, radians, meters, m/sec^2.
+    chargeDuration: 450
+    dischargeDuration: 60000
+    motionFactor: 1.02
+    attachmentFactor: 1.02
+    decayFactor: 1.02
+    enableBattery: true
+    initialDecayAge: 0

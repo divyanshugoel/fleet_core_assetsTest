@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<root>
+    <Exceptions FormatVersion="1">
+            <Error errorname="NAVIGATION ERROR" errorcode="201"  errorDescription="Robot went out of Path">
+                <Option optionid="0" retrunstate="CONTINUE_TASK"  optionDescription="robot is placed on barcode and put into auto mode, continue the old task if any"/>
+                <Option optionid="1" retrunstate="CANCEL_TASK"  optionDescription="robot is placed on a barcode and put into auto mode, cancel the old task if any"/>
+                <Option optionid="2" retrunstate="REMOVE_ROBOT"  optionDescription="Robot has some fault, cancel task if any , remove it from fleet and clear its reservations"/>
+            </Error>
+            <Error errorname="NAVIGATION ERROR" errorcode="202"  errorDescription="Goal Overshoot">
+                <Option optionid="0" retrunstate="CONTINUE_TASK"  optionDescription="robot is placed on barcode and put into auto mode, continue the old task if any"/>
+                <Option optionid="1" retrunstate="CANCEL_TASK"  optionDescription="robot is placed on a barcode and put into auto mode, cancel the old task if any"/>
+                <Option optionid="2" retrunstate="REMOVE_ROBOT"  optionDescription="Robot has some fault,Cancel task if any  remove it from fleet and clear its reservations"/>
+            </Error>
+            <Error errorname="DIAGONISTICS FAULT" errorcode="301"  errorDescription="some node/topic died on robot">
+                <Option optionid="0" retrunstate="CONTINUE_TASK"  optionDescription="robot is restarted and put on a barcode in auto mode, continue the task if any"/>
+                <Option optionid="1" retrunstate="CANCEL_TASK"  optionDescription="robot is restarted and put on a barcode in auto mode, cancel any old task and give new "/>
+                <Option optionid="2" retrunstate="REMOVE_ROBOT"  optionDescription="robot is giving same error again,Cancel task if any remove it from fleet and clear its reservations"/>
+            </Error>
+            <Error errorname="LOADING FAILURE ERROR" errorcode="401"  errorDescription="Loading Failed">
+                <Option optionid="0" retrunstate="CONTINUE_TASK"  optionDescription="parcel manually placed on robot, continue task to unloading "/>
+                <Option optionid="1" retrunstate="CANCEL_TASK"  optionDescription="parcel removed manually cancel task , give new task to robot"/>
+                <Option optionid="2" retrunstate="REMOVE_ROBOT"  optionDescription="parcel removed manually, cancel task remove it from fleet and clear its reservations"/>
+            </Error>
+            <Error errorname="UNLOADING FAILURE ERROR" errorcode="402"  errorDescription="Unloading Failed">
+                <Option optionid="0" retrunstate="CONTINUE_TASK"  optionDescription="parcel manually removed task finished , continue to new task "/>
+                <Option optionid="1" retrunstate="CANCEL_TASK"  optionDescription="parcel manually removed cancel current task , continue to new task"/>
+                <Option optionid="2" retrunstate="REMOVE_ROBOT"  optionDescription="cancel current task and remove it from fleet and clear its reservations"/>
+            </Error>
+            <Error errorname="LOWERLEVEL ERROR" errorcode="403"  errorDescription="BMS data not updating">
+                <Option optionid="0" retrunstate="CONTINUE_TASK"  optionDescription="robot is restarted and put on a barcode in auto mode, continue the task if any"/>
+                <Option optionid="1" retrunstate="CANCEL_TASK"  optionDescription="robot is restarted and put on a barcode in auto mode, reset any old task and give new "/>
+                <Option optionid="2" retrunstate="REMOVE_ROBOT"  optionDescription="robot is giving same error again, Cancel task if any remove it from fleet and clear its reservations"/>
+            </Error>
+            <Error errorname="CHARGING ERROR" errorcode="501"  errorDescription="Charge published (LMFB true) but robot not Charging">
+                <Option optionid="0" retrunstate="CANCEL_TASK"  optionDescription="Bring the robot to predock and asign to fresh state"/>
+                <Option optionid="1" retrunstate="CANCEL_TASK"  optionDescription="Bring the robot to predock and asign to fresh state"/>
+                <Option optionid="2" retrunstate="CANCEL_TASK"  optionDescription="Bring the robot to predock and asign to fresh state"/>
+            </Error>
+            <Error errorname="CHARGING ERROR" errorcode="502"  errorDescription="Charger Not Working">
+                <Option optionid="0" retrunstate="CANCEL_TASK"  optionDescription="Bring the robot to predock and asign to fresh state"/>
+                <Option optionid="1" retrunstate="CANCEL_TASK"  optionDescription="Bring the robot to predock and asign to fresh state"/>
+                <Option optionid="2" retrunstate="CANCEL_TASK"  optionDescription="Bring the robot to predock and asign to fresh state"/>
+            </Error>
+            <Error errorname="WIFI ISSUE" errorcode="601"  errorDescription="Robot is not Connected in network">
+                <Option optionid="0" retrunstate="CONTINUE_TASK"  optionDescription="Connected robot is placed on barcode and put into auto mode, continue the old task if any"/>
+                <Option optionid="1" retrunstate="CANCEL_TASK"  optionDescription="Connected robot is placed on barcode and put into auto mode, cancel the old task if any"/>
+                <Option optionid="2" retrunstate="REMOVE_ROBOT"  optionDescription="remove it from fleet and clear its reservations"/>
+            </Error>
+            <Error errorname="ESTOP" errorcode="701"  errorDescription="Robot's ESTOP">
+                <Option optionid="0" retrunstate="CONTINUE_TASK"  optionDescription="Estop released, robot is placed on barcode and put into auto mode, continue the old task if any"/>
+                <Option optionid="1" retrunstate="CANCEL_TASK"  optionDescription="Estop released, robot is placed on barcode and put into auto mode, cancel the old task if any"/>
+                <Option optionid="2" retrunstate="REMOVE_ROBOT"  optionDescription="Robot has some fault, remove it from fleet and clear its reservations"/>
+            </Error>
+            <Error errorname="PARCEL FALL ERROR" errorcode="801" errorDescription="Parcel Fall while robot running">
+                <Option optionid="0" retrunstate="CONTINUE_TASK" optionDescription="parcel manually placed on robot, continue task to unloading "/>
+                <Option optionid="1" retrunstate="CONTINUE_TASK" optionDescription="parcel manually placed on robot, continue task to unloading "/>
+                <Option optionid="2" retrunstate="CONTINUE_TASK" optionDescription="parcel manually placed on robot, continue task to unloading "/>
+            </Error>
+    </Exceptions>
+</root>

@@ -470,8 +470,8 @@
         <ComputeCenteringNode>false</ComputeCenteringNode>
         <!-- Mode of operation for bin tasks. 
                 1. Standard(false) : pick from start and end 
-                2. Short(true) : Pick from the centering node   
-                and drop from the centering node by using dock -->
+                2. Short(true) : Pick from the homing node   
+                and drop from the homing node by using dock -->
         <OperationMode>false</OperationMode>
     </Scene>
 
@@ -527,7 +527,7 @@
             <Database>
                 <CollectionName>scenarioData</CollectionName>
             </Database>
-            <!-- Used for level changes and homing requests -->
+            <!-- Used for level changes and maintenance requests -->
             <Redirection>
                 <Enabled>true</Enabled>
                 <!-- Time after which request is removed after being completed, also serves as
@@ -866,7 +866,7 @@
         </Rabbitmq>
         <!-- Send low frequency update as per old ui stack -->
         <AgentUpdate>
-            <Enabled>true</Enabled>
+            <Enabled>false</Enabled>
             <!-- Update time in seconds as it is slower. -->
             <UpdateTime>1.0</UpdateTime>
             <Rabbitmq>
