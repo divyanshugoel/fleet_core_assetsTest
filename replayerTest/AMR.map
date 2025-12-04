@@ -1,0 +1,1252 @@
+{
+   "backgrounds" : [],
+   "blockers" : null,
+   "edges" : [
+      {
+         "from" : "N0",
+         "isUniDirectional" : true,
+         "name" : "N0|N5",
+         "to" : "N5",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N10",
+         "isUniDirectional" : true,
+         "name" : "N10|N15",
+         "to" : "N15",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N11",
+         "isUniDirectional" : true,
+         "name" : "N11|N10",
+         "to" : "N10",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N11",
+         "isUniDirectional" : true,
+         "name" : "N11|N16",
+         "to" : "N16",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N12",
+         "isUniDirectional" : true,
+         "name" : "N12|N11",
+         "to" : "N11",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N12",
+         "isUniDirectional" : true,
+         "name" : "N12|N7",
+         "to" : "N7",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N13",
+         "isUniDirectional" : true,
+         "name" : "N13|N12",
+         "to" : "N12",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N13",
+         "isUniDirectional" : true,
+         "name" : "N13|N18",
+         "to" : "N18",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N14",
+         "isUniDirectional" : true,
+         "name" : "N14|N13",
+         "to" : "N13",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N14",
+         "isUniDirectional" : true,
+         "name" : "N14|N9",
+         "to" : "N9",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N15",
+         "isUniDirectional" : true,
+         "name" : "N15|N20",
+         "to" : "N20",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N16",
+         "isUniDirectional" : true,
+         "name" : "N16|N15",
+         "to" : "N15",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N16",
+         "isUniDirectional" : true,
+         "name" : "N16|N17",
+         "to" : "N17",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N16",
+         "isUniDirectional" : true,
+         "name" : "N16|N21",
+         "to" : "N21",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N17",
+         "isUniDirectional" : true,
+         "name" : "N17|N12",
+         "to" : "N12",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N17",
+         "isUniDirectional" : true,
+         "name" : "N17|N18",
+         "to" : "N18",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N18",
+         "isUniDirectional" : true,
+         "name" : "N18|N19",
+         "to" : "N19",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N18",
+         "isUniDirectional" : true,
+         "name" : "N18|N23",
+         "to" : "N23",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N19",
+         "isUniDirectional" : true,
+         "name" : "N19|N14",
+         "to" : "N14",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N1",
+         "isUniDirectional" : true,
+         "name" : "N1|N0",
+         "to" : "N0",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N1",
+         "isUniDirectional" : true,
+         "name" : "N1|N6",
+         "to" : "N6",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N20",
+         "isUniDirectional" : true,
+         "name" : "N20|N21",
+         "to" : "N21",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N21",
+         "isUniDirectional" : true,
+         "name" : "N21|N22",
+         "to" : "N22",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N22",
+         "isUniDirectional" : true,
+         "name" : "N22|N17",
+         "to" : "N17",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N22",
+         "isUniDirectional" : true,
+         "name" : "N22|N23",
+         "to" : "N23",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N23",
+         "isUniDirectional" : true,
+         "name" : "N23|N24",
+         "to" : "N24",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N24",
+         "isUniDirectional" : true,
+         "name" : "N24|N19",
+         "to" : "N19",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N2",
+         "isUniDirectional" : true,
+         "name" : "N2|N1",
+         "to" : "N1",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N3",
+         "isUniDirectional" : true,
+         "name" : "N3|N2",
+         "to" : "N2",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N3",
+         "isUniDirectional" : true,
+         "name" : "N3|N8",
+         "to" : "N8",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N4",
+         "isUniDirectional" : true,
+         "name" : "N4|N3",
+         "to" : "N3",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N5",
+         "isUniDirectional" : true,
+         "name" : "N5|N10",
+         "to" : "N10",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N6",
+         "isUniDirectional" : true,
+         "name" : "N6|N11",
+         "to" : "N11",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N6",
+         "isUniDirectional" : true,
+         "name" : "N6|N5",
+         "to" : "N5",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N6",
+         "isUniDirectional" : true,
+         "name" : "N6|N7",
+         "to" : "N7",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N7",
+         "isUniDirectional" : true,
+         "name" : "N7|N2",
+         "to" : "N2",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N7",
+         "isUniDirectional" : true,
+         "name" : "N7|N8",
+         "to" : "N8",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N8",
+         "isUniDirectional" : true,
+         "name" : "N8|N13",
+         "to" : "N13",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N8",
+         "isUniDirectional" : true,
+         "name" : "N8|N9",
+         "to" : "N9",
+         "useAwake" : true,
+         "useSleep" : true
+      },
+      {
+         "from" : "N9",
+         "isUniDirectional" : true,
+         "name" : "N9|N4",
+         "to" : "N4",
+         "useAwake" : true,
+         "useSleep" : true
+      }
+   ],
+   "handlingUnitMap" : null,
+   "junctions" : null,
+   "locationManager" : null,
+   "nodes" : [
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "conveyorType" : "manual",
+         "disabledFor" : "",
+         "dockDirection" : {
+            "yaw" : 1.0
+         },
+         "enable" : true,
+         "name" : "N0",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "bin",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N1",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 4.0,
+               "y" : 0.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N2",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 8.0,
+               "y" : 0.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N3",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 12.0,
+               "y" : 0.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "conveyorType" : "manual",
+         "disabledFor" : "",
+         "dockDirection" : {
+            "yaw" : 1.0
+         },
+         "enable" : true,
+         "name" : "N4",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 16.0,
+               "y" : 0.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "bin",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N5",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 0.0,
+               "y" : 4.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N6",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 4.0,
+               "y" : 4.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N7",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 8.0,
+               "y" : 4.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N8",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 12.0,
+               "y" : 4.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N9",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 16.0,
+               "y" : 4.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N10",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 0.0,
+               "y" : 8.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N11",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 4.0,
+               "y" : 8.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N12",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 8.0,
+               "y" : 8.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N13",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 12.0,
+               "y" : 8.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N14",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 16.0,
+               "y" : 8.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N15",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 0.0,
+               "y" : 12.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N16",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 4.0,
+               "y" : 12.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N17",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 8.0,
+               "y" : 12.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N18",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 12.0,
+               "y" : 12.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N19",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 16.0,
+               "y" : 12.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "conveyorType" : "manual",
+         "disabledFor" : "",
+         "dockDirection" : {
+            "yaw" : 1.0
+         },
+         "enable" : true,
+         "name" : "N20",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 0.0,
+               "y" : 16.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "bin",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N21",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 4.0,
+               "y" : 16.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N22",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 8.0,
+               "y" : 16.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "disabledFor" : "",
+         "name" : "N23",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 12.0,
+               "y" : 16.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "none",
+         "weight" : -1.0
+      },
+      {
+         "agentsAllowed" : "",
+         "agentsNotAllowed" : "",
+         "barcodeValue" : {
+            "id" : -1,
+            "str" : "",
+            "x" : -1,
+            "y" : -1
+         },
+         "conveyorType" : "manual",
+         "disabledFor" : "",
+         "dockDirection" : {
+            "yaw" : 1.0
+         },
+         "enable" : true,
+         "name" : "N24",
+         "pose" : {
+            "orientation" : {
+               "w" : 6.123233995736766e-17,
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "position" : {
+               "x" : 16.0,
+               "y" : 16.0,
+               "z" : 0.0
+            }
+         },
+         "replanAllowed" : true,
+         "replanTimer" : -1.0,
+         "safetyType" : "normalSafety",
+         "sleepType" : "none",
+         "turnCost" : {
+            "Clockwise" : 3.1400000000000001,
+            "antiClockwise" : 3.1400000000000001
+         },
+         "type" : "bin",
+         "weight" : -1.0
+      }
+   ],
+   "param" : {
+      "defaultView" : {
+         "x" : 1.0,
+         "y" : 1.0,
+         "yaw" : 0.0
+      },
+      "flipX" : false,
+      "flipY" : false,
+      "offsetPose" : {
+         "orientation" : {
+            "w" : 0.0,
+            "x" : 0.0,
+            "y" : 0.0,
+            "z" : 0.0
+         },
+         "position" : {
+            "x" : 0.0,
+            "y" : 0.0,
+            "z" : 0.0
+         }
+      },
+      "pickEdgeMultiplier" : 10.0
+   },
+   "robotTypes" : [],
+   "taskPolicies" : [],
+   "zones" : null
+}
