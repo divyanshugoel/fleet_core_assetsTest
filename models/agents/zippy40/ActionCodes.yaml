@@ -182,6 +182,8 @@ Params:
     turnDelayNoRotation: 10
     # Lift the scissor lift x mtrs. away from the pick position.
     lifterPreRaiseDistance: 1
+    # Lift the scissor lift x mtrs. away from the drop position.
+    lifterPreRaiseDistanceDrop: 1
   battery:
     # All Values are in seconds, radians, meters, m/sec^2.
     chargeDuration: 450
