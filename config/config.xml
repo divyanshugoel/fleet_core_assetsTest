@@ -505,6 +505,8 @@
             <Tasks>
                 <!-- If the task type is bin and task is not loaded then allow task to be cancelled -->
                 <CancelBeforePicking>true</CancelBeforePicking>
+                <!-- Cancel task on surrender/deinit -->
+                <CancelSurrenderedTask>false</CancelSurrenderedTask>
             </Tasks>
             <!-- Handle events -->
             <EventHandling>
