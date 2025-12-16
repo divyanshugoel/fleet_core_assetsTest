@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<root>
+    <Network>
+        <WCS>
+        </WCS>
+    </Network>
+    <Scenario>
+        <Location>
+            <Charge>
+                <Method>nearest</Method>
+            </Charge>
+            <Pick>
+                <Method>optimized</Method>
+            </Pick>
+            <Wait>
+                <Method>FIFO</Method>
+            </Wait>
+            <Drop>
+                <Method>trigger</Method>
+            </Drop>
+            <Bin>
+                <Method>Optimized</Method>
+            </Bin>
+            <Park>
+                <Method>Optimized</Method>
+            </Park>
+            <Hospital>
+                <Method>Nearest</Method>
+            </Hospital>
+            <Workstation>
+                <Method></Method>
+            </Workstation>
+
+            <TransientPark>
+                <Method>Optimized</Method>
+            </TransientPark>
+            <Maintenance>
+                <Method></Method>
+            </Maintenance>
+        </Location> 
+    </Scenario>    
+</root>
