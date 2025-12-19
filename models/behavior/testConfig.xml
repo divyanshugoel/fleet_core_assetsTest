@@ -33,7 +33,7 @@
             </Workstation>
 
             <TransientPark>
-                <Method>Optimized</Method>
+                <Method>Nearest</Method>
             </TransientPark>
             <Maintenance>
                 <Method></Method>
