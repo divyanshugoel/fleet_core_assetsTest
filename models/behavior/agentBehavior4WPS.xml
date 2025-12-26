@@ -58,7 +58,7 @@
                             </Fallback>
                         </Sequence>
                         <Action ID="MOVE_PICK_MOVABLE" />
-                        <Action ID="LOAD_FWPS_DOCK" />
+                        <Action ID="LOAD_FWPS" />
                         <Fallback name="HospitalFallback">
                             <Action ID="CHECK_HOSPITAL_TASK" />
                             <SequenceWithMemory name="HospitalSequence">
@@ -67,7 +67,7 @@
                             </SequenceWithMemory>
                         </Fallback>
                         <Action ID="MOVE_PICK_MOVABLE" />
-                        <Action ID="UNLOAD_FWPS_DOCK" />
+                        <Action ID="UNLOAD_FWPS" />
                     </SequenceWithMemory>
                     <!-- If the robot can go for level change, this also ensures that
                          if there is a level change request that is completed first 
