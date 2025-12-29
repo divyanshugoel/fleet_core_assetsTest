@@ -84,8 +84,8 @@ Params:
   tug: false
   rotateFirst: true
   noRotation: false
-  validateParcelAtPick: true
-  validateParcelAtDrop: true
+  validateParcelAtPick: false
+  validateParcelAtDrop: false
   dimensions:
     lengthFront: 0.2
     lengthRear: 0.2
