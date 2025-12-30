@@ -51,8 +51,8 @@
         <Action ID="CHECK_CHARGE_LOCATION_ASSIGNED" />
         <Action ID="CHECK_CHARGE_RESUME" />
         <Action ID="CHECK_FIRST_PARK_QUERY" />
-        <Action ID="CHECK_FOR_MAINTENANCE" />
-        <Action ID="CHECK_FOR_MAINTENANCE_RESUME" />
+        <Action ID="CHECK_MAINTENANCE_TRIGGER" />
+        <Action ID="CHECK_MAINTENANCE_RESUME" />
         <Action ID="CHECK_FOR_UNLOADING_FAILURE" />
         <Action ID="CHECK_GOING_TO_PARK" />
         <Action ID="CHECK_HOSPITAL_TASK" />
