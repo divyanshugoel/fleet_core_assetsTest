@@ -3,7 +3,7 @@
     <!-- ////////// -->
     <BehaviorTree ID= "AgentBehavior">
         <Sequence>
-            <Action ID="AGENT_REACHED_BUFFER" />
+            <Action ID="CHECK_LIFT_PREDOCK_REACHED" />
             <Action ID="AGENT_UNABLE_TO_MOVE" />
             <Action ID="ALLOW_CHARGE_ESCAPE" />
             <Action ID="AMR_CHARGE" />
@@ -21,7 +21,7 @@
             <Action ID="ASSIGN_HOSPITAL_SPOT" />
             <Action ID="ASSIGN_IN_PROGRESS_TASK" />
             <Action ID="ASSIGN_IN_PROGRESS_TASK_BIN" />
-            <Action ID="ASSIGN_LEVEL_CHANGE" />
+            <Action ID="ASSIGN_LEVEL_CHANGE_LOCATION" />
             <Action ID="ASSIGN_NEW_PICK_SPOT" />
             <Action ID="ASSIGN_NEW_TASK" />
             <Action ID="ASSIGN_PARK_SPOT" />
@@ -44,7 +44,7 @@
             <Action ID="CHECK_FOR_UNLOADING_FAILURE" />
             <Action ID="CHECK_GOING_TO_PARK" />
             <Action ID="CHECK_HOSPITAL_TASK" />
-            <Action ID="CHECK_LEVEL_CHANGE" />
+            <Action ID="CHECK_LEVEL_CHANGE_TRIGGER" />
             <Action ID="CHECK_LEVEL_CHANGE_RESUME" />
             <Action ID="CHECK_LOADING_TIMEOUT" />
             <Action ID="CHECK_LOAD_RESUME" />
@@ -65,7 +65,7 @@
             <Action ID="DOCK_IN_PLACE" />
             <Action ID="DOCK_ZIPPYX" />
             <Action ID="FORCE_PATH_END" />
-            <Action ID="HALT_AT_BUFFER" />
+            <Action ID="WAIT_FOR_LIFT_ARRIVAL" />
             <Action ID="HALT_FOR_MAINTENANCE" />
             <Action ID="INITIAL_WORKSTATION_ASSIGNED" />
             <Action ID="LOAD" />
@@ -104,7 +104,7 @@
 
     <!-- ////////// -->
     <TreeNodesModel>
-        <Action ID="AGENT_REACHED_BUFFER" />
+        <Action ID="CHECK_LIFT_PREDOCK_REACHED" />
         <Action ID="AGENT_UNABLE_TO_MOVE" />
         <Action ID="ALLOW_CHARGE_ESCAPE" />
         <Action ID="AMR_CHARGE" />
@@ -122,7 +122,7 @@
         <Action ID="ASSIGN_HOSPITAL_SPOT" />
         <Action ID="ASSIGN_IN_PROGRESS_TASK" />
         <Action ID="ASSIGN_IN_PROGRESS_TASK_BIN" />
-        <Action ID="ASSIGN_LEVEL_CHANGE" />
+        <Action ID="ASSIGN_LEVEL_CHANGE_LOCATION" />
         <Action ID="ASSIGN_NEW_PICK_SPOT" />
         <Action ID="ASSIGN_NEW_TASK" />
         <Action ID="ASSIGN_PARK_SPOT" />
@@ -145,7 +145,7 @@
         <Action ID="CHECK_FOR_UNLOADING_FAILURE" />
         <Action ID="CHECK_GOING_TO_PARK" />
         <Action ID="CHECK_HOSPITAL_TASK" />
-        <Action ID="CHECK_LEVEL_CHANGE" />
+        <Action ID="CHECK_LEVEL_CHANGE_TRIGGER" />
         <Action ID="CHECK_LEVEL_CHANGE_RESUME" />
         <Action ID="CHECK_LOADING_TIMEOUT" />
         <Action ID="CHECK_LOAD_RESUME" />
@@ -166,7 +166,7 @@
         <Action ID="DOCK_IN_PLACE" />
         <Action ID="DOCK_ZIPPYX" />
         <Action ID="FORCE_PATH_END" />
-        <Action ID="HALT_AT_BUFFER" />
+        <Action ID="WAIT_FOR_LIFT_ARRIVAL" />
         <Action ID="HALT_FOR_MAINTENANCE" />
         <Action ID="INITIAL_WORKSTATION_ASSIGNED" />
         <Action ID="LOAD" />
